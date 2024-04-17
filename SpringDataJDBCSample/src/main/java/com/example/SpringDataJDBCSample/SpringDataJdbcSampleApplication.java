@@ -21,7 +21,7 @@ public class SpringDataJdbcSampleApplication {
 	}
 
 	private void executeInsert() {
-		Member member = new Member(null, "이순신");
+		Member member = new Member(null, "홍길동");
 		member = repository.save(member);
 		System.out.println("등록 데이터: " + member);
 	}
