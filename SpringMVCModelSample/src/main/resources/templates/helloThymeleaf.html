@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="${msg}">표시되는 부분</h1>
+    <h1 th:text="'hello world'">표시되는 부분</h1>
+    <h1>안녕하세요! [[${name}]]씨</h1>
+    <h1 th:text="'오늘의 날씨는 '+'맑음 '+'입니다.'">표시되는 부분</h1>
+    <h1 th:text="|안녕하세요 ${name}씨|">표시되는 부분</h1>
+    <div th:with="a=1,b=2">
+        <span th:text="|${a} + ${b} = ${a+b}"></span>
+    </div>
+    <span th:text="1 > 10"></span>
+    <span th:text="1 < 10"></span>
+    <span th:text="1 >= 10"></span>
+    <span th:text="1 <= 10"></span>
+    <span th:text="1 == 10"></span>
+    <span th:text="1 != 10"></span>
+    <span th:text="길동 == 길동"></span>
+    <span th:text="길동 != 길동"></span>
+    <p th:text="${name} == '길동' ? '길동입니다!' : '길동이가 아닙니다.'"></p>
+    <div th:if="${name} == '길동'">
+        <p>길동씨 입니다.</p>
+    </div>
+    <div th:unless="${name} == '영희'"><!--name==영희 이면 skip-->
+        <p>영희씨가 아닙니다.</p>
+    </div>
+    <div th:switch="${name}">
+        <p th:case="길동" th:text="|${name}입니다!|"></p>
+        <p th:case="영희" th:text="|${name}입니다!|"></p>
+        <p th:case="철수" th:text="|${name}입니다!|"></p>
+        <p th:case="*">명부에 없습니다.</p>
+    </div>
+
+    <div th:with="x=1000000, y=123456.789">
+        정수 형식:
+        <span th:text="${#numbers.formatInteger(x, 3, 'COMMA')}"></span>
+        <br>
+        부동 소수점 형식:
+        <span th:text="${#numbers.formatDecimal(y, 3, 'COMMA', 2, 'POINT')}"></span>
+    </div>
+
+    <div th:with="today=${#dates.createNow()}">
+        yyyy/mm/dd 형식: <span th:text="${#dates.format(today, 'yyyy/MM/dd')}"></span><br>
+        yyyy년 mm월 dd일 형식: <span th:text="${#dates.format(today, 'yyyy년 MM월 dd일')}"></span><br>
+        yyyy년: <span th:text="${#dates.year(today)}"></span><br>
+        MM월: <span th:text="${#dates.month(today)}"></span><br>
+        dd일: <span th:text="${#dates.day(today)}"></span><br>
+        요일: <span th:text="${#dates.dayOfWeek(today)}"></span><br>
+    </div>
+
+    <div th:with="str1='abcdef'">
+        대문자 변환: <span th:text="${#strings.toUpperCase(str1)}"></span><br>
+        빈 문자열 판정: <span th:text="${#strings.isEmpty(str1)}"></span><br>
+        길이: <span th:text="${#strings.length(str1)}"></span><br>
+    </div>
+</body>
+</html>
