@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>entry</title>
+</head>
+<body>
+    <!--@{/confirm}는 /confirm을 URL로 보낸다는 뜻-->
+    <form th:action="@{/confirm}" method="post">
+        <div>
+            <label for="name">이름:</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="age">나이:</label>
+            <input type="number" name="age" id="age" min="1" max="100">
+        </div>
+        <div>
+            <label for="birth">생년월일:</label>
+            <input type="date" name="birth" id="birth">
+        </div>
+        <input type="submit" value="전송">
+    </form>
+</body>
+</html>
