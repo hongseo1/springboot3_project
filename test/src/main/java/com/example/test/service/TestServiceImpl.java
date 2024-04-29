@@ -23,22 +23,22 @@ public class TestServiceImpl implements TestService{
         return repository.findById(id);
     }
 
-    /*@Override
+    Integer count=0;
+    @Override
     public Optional<Test> selectOneRandomTest() {
         Integer randId = repository.getRandomId();
         if(randId == null){
-            return  Optional.empty();
-
+            return Optional.empty();
         }
-        return repository.findById(randId);
-    }*/
-
-    @Override
-    public Optional<Test> selectOneTest() {
-        Integer randId = repository.getAscId();
-        if(randId == null){
-            return  Optional.empty();
-
+        randId=0;
+        while (count < 100){ //수정 필요
+            count++;
+            randId=count+randId;
+            if(randId>=4){ //수정 필요
+                return repository.findById(randId+1);
+            } else {
+                return repository.findById(randId);
+            }
         }
         return repository.findById(randId);
     }
