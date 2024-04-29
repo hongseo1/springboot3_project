@@ -23,9 +23,19 @@ public class TestServiceImpl implements TestService{
         return repository.findById(id);
     }
 
-    @Override
+    /*@Override
     public Optional<Test> selectOneRandomTest() {
         Integer randId = repository.getRandomId();
+        if(randId == null){
+            return  Optional.empty();
+
+        }
+        return repository.findById(randId);
+    }*/
+
+    @Override
+    public Optional<Test> selectOneTest() {
+        Integer randId = repository.getAscId();
         if(randId == null){
             return  Optional.empty();
 

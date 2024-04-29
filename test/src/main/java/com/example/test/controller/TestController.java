@@ -112,7 +112,7 @@ public class TestController {
 
     @GetMapping("/play")
     public String showTest(TestForm testForm, Model model){
-        Optional<Test> testOpt = service.selectOneRandomTest();
+        Optional<Test> testOpt = service.selectOneTest();
         if(testOpt.isPresent()){
             Optional<TestForm> testFormOpt = testOpt.map(t -> makeTestForm(t));
             testForm = testFormOpt.get();
