@@ -18,18 +18,33 @@ public class TestServiceImpl implements TestService{
         return repository.findAll();
     }
 
+    Integer count= -1;
     @Override
     public Optional<Test> selectOneById(Integer id) {
-        return repository.findById(id);
+        Integer startId;
+        Integer endId = repository.endId();
+        count++;
+        startId = count;
+        if(startId > endId){ //마지막 문제인지 확인
+            count = -1; //마지막이면 다시 초기화
+            startId = count;
+        }
+        Boolean findId = repository.existsById(startId); //존재 여부 확인
+        while(findId == false){ //startId이 존재하지 않을 때 실행
+            startId++;
+            count = startId;
+            findId = repository.existsById(startId);
+        }
+        return repository.findById(startId);
     }
 
-    Integer count=0;
     @Override
     public Optional<Test> selectOneRandomTest() {
         Integer randId = repository.getRandomId();
         if(randId == null){
             return Optional.empty();
         }
+        /*
         randId=0;
         while (count < 100){ //수정 필요
             count++;
@@ -40,6 +55,7 @@ public class TestServiceImpl implements TestService{
                 return repository.findById(randId);
             }
         }
+        */
         return repository.findById(randId);
     }
 
