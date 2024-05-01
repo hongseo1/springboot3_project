@@ -10,6 +10,7 @@ public interface BoardRepository extends CrudRepository<Board, Integer> {
 
 /*    @Query("SELECT board_no FROM board_test ORDER BY board_no DESC limit 1")
     Integer endId();*/
-    @Query("SELECT * FROM board_test")
+    @Query("SELECT * FROM board")
     Integer getboard_no();
+
 }
