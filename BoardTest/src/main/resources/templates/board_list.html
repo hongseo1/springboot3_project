@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:if="${boardForm.newBoard}" style="margin: 10px">
+        <h3>게시판 목록</h3>
+        <p th:if="${delcomplete}" th:text="${delcomplete}" style="color:blue"></p>
+        <p th:if="${msg}" th:text="${msg}" style="color:red"></p>
+
+        <table border="1" th:unless="${#lists.isEmpty(list)}" style="table-layout: fixed;">
+            <tr>
+                <th>NO.</th>
+                <th>제목</th>
+                <th>내용</th>
+                <th>작성자</th>
+                <th>등록일</th>
+                <th>변경</th>
+                <th>삭제</th>
+            </tr>
+            <tr th:each="obj : ${list}" align="center">
+                <td th:text="${obj.board_no}"></td>
+                <td th:text="${obj.title}" align="left"></td>
+                <td th:text="${obj.content}"></td>
+                <td th:text="${obj.writer}"></td>
+                <td th:text="${obj.regdate}"></td>
+                <td>
+                    <form method="get" th:action="@{/board/{board_no}(id=${obj.board_no})}">
+                        <input type="submit" value="변경">
+                    </form>
+                </td>
+                <td>
+                    <form method="post" th:action="@{/board/delete}">
+                        <input type="hidden" name="id" th:value="${obj.board_no}">
+                        <input type="submit" value="삭제">
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <p th:if="${#lists.isEmpty(list)}">등록된 게시글이 없습니다.</p>
+    </div>
+    <a th:href="@{/board/board_writer}">글쓰기</a>
+</body>
+</html>

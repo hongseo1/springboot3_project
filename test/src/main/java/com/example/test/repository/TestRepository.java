@@ -12,7 +12,4 @@ public interface TestRepository extends CrudRepository<Test, Integer> {
     @Query("SELECT id FROM test ORDER BY id DESC limit 1")
     Integer endId();
 
-    /*@Query("SELECT id FROM test ORDER BY 'id'")
-    Integer getRandomId();*/
-
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>border test</title>
+</head>
+<body>
+    <h1>게시판 글쓰기</h1>
+    <h3 th:text="${title}">제목</h3>
+    <form method="post" th:action="${boardForm.newBoard}? @{/board/insert} : @{/board/update}" th:object="${boardForm}">
+        <label>퀴즈 내용: </label> <br>
+        <textarea rows="5" cols="50" th:field="*{title}"></textarea> <br>
+        <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" style="color:red"></div>
+        <br>
+        <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" style="color:red"></div>
+        <label>작성자: </label> <br>
+        <input type="text" th:field="*{writer}">
+        <br>
+        <div th:if="${#fields.hasErrors('writer')}" th:errors="*{writer}" style="color:red"></div>
+        <input th:if="${board_no}" type="hidden" th:field="*{board_no}"> <br>
+        <input type="submit" value="저장">
+    </form>
+    <p th:unless="${boardForm.newBoard}">
+        <a href="#" th:href="@{/board}">목록</a>
+    </p>
+</body>
+</html>
