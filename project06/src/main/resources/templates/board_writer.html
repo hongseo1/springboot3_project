@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{commons/layout}">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/board.css"/>
+</head>
+<body>
+    <th:block layout:fragment="content">
+        <section class="board_wrap cont_width">
+            <ul class="sub_page_menu cf">
+                <li class="first fl"><a href="index" tabindex="118">홈</a></li>
+                <li class="fl"><a href="#" tabindex="119">고객지원</a>
+                    <ul class="sub_menu">
+                        <li><a href="#" tabindex="120">상품</a></li>
+                        <li><a href="#" tabindex="121">이벤트/혜택</a></li>
+                        <li class="active"><a href="#" tabindex="122">고객지원</a></li>
+                        <li><a href="#" tabindex="123">내정보</a></li>
+                        <li><a href="#" tabindex="124">유모바일</a></li>
+                    </ul>
+                </li>
+                <li class="last fl"><a href="#" tabindex="125">일반 게시판</a>
+                    <ul class="sub_menu">
+                        <li class="active"><a href="board" tabindex="126">일반 게시판</a></li>
+                        <li><a href="qaboard" tabindex="127">Q&A 게시판</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="board_create" class="board">
+                <h2>일반 게시판</h2>
+            </div>
+            <p th:if="${complete}" th:text="${complete}" style="color:blue"></p>
+
+            <form method="post" th:action="${boardForm.newBoard}? @{/insert} : @{/update}"
+                  th:object="${boardForm}">
+                <label>제목: </label> <br>
+                <textarea rows="5" cols="50" th:field="*{title}"></textarea> <br>
+                <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" style="color:red"></div>
+                <br>
+                <label>내용: </label> <br>
+                <textarea rows="5" cols="50" th:field="*{content}"></textarea> <br>
+                <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" style="color:red"></div>
+                <br>
+                <label>작성자: </label> <br>
+                <input type="text" th:field="*{writer}">
+                <br>
+                <div th:if="${#fields.hasErrors('writer')}" th:errors="*{writer}" style="color:red"></div>
+                <input th:if="${board_no}" type="hidden" th:field="*{board_no}"> <br>
+
+                <label>날짜: </label> <br>
+                <input type="date" th:field="*{regdate}">
+
+                <input type="submit" value="저장">
+            </form>
+            <p th:unless="${boardForm.newBoard}">
+                <a href="#" th:href="@{/board}">목록</a>
+            </p>
+        </section>
+    </th:block>
+</body>
+</html>

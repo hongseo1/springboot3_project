@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -17,5 +18,6 @@ public class Board {
     private String title;
     private String content;
     private String writer;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date regdate;
 }

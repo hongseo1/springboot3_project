@@ -1,8 +1,8 @@
-package com.example.BoardTest.controller;
+package com.example.project06.controller;
 
-import com.example.BoardTest.entity.Board;
-import com.example.BoardTest.form.BoardForm;
-import com.example.BoardTest.service.BoardService;
+import com.example.project06.entity.Board;
+import com.example.project06.form.BoardForm;
+import com.example.project06.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,26 +14,34 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/board")
 public class BoardController {
     @Autowired
     BoardService service;
 
-    @GetMapping
+    @GetMapping("board")
     public String showBoard(BoardForm boardForm, Model model){
         boardForm.setNewBoard(true);
         Iterable<Board> list = service.selectAll();
 
         model.addAttribute("list", list);
-        return "board_list";
+        return "board";
     }
-    @GetMapping("/board_writer")
+    @GetMapping("/create")
     public String showWriter(BoardForm boardForm, Model model){
         boardForm.setNewBoard(true); //등록인지 아닌지
 
         model.addAttribute("title", "등록 폼");
 
         return "board_writer";
+    }
+    @GetMapping("detail/{board_no}")
+    public String detail(@Validated BoardForm boardForm, BindingResult result, Model model, RedirectAttributes redirectAttributes){
+
+
+
+
+        Board board = makeBoard(boardForm);
+        return "redirect:/detail" + board.getBoard_no();
     }
 
     @PostMapping("/insert")
@@ -58,7 +66,7 @@ public class BoardController {
         return "redirect:/board";
     }
 
-    @GetMapping("board_writer/{board_no}")
+    @GetMapping("create/{board_no}")
     public String showUpdate(BoardForm boardForm, @PathVariable Integer board_no, Model model){
         Optional<Board> boardOpt = service.selectOneByNo(board_no);
         Optional<BoardForm> boardFormOpt = boardOpt.map(b -> makeBoardForm(b)); //(arrow함수) 함수가 두번 실행

@@ -7,17 +7,26 @@
 <body>
     <h1>게시판 글쓰기</h1>
     <h3 th:text="${title}">제목</h3>
+    <p th:if="${complete}" th:text="${complete}" style="color:blue"></p>
+
     <form method="post" th:action="${boardForm.newBoard}? @{/board/insert} : @{/board/update}" th:object="${boardForm}">
-        <label>퀴즈 내용: </label> <br>
+        <label>제목: </label> <br>
         <textarea rows="5" cols="50" th:field="*{title}"></textarea> <br>
         <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" style="color:red"></div>
         <br>
+        <label>내용: </label> <br>
+        <textarea rows="5" cols="50" th:field="*{content}"></textarea> <br>
         <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" style="color:red"></div>
+        <br>
         <label>작성자: </label> <br>
         <input type="text" th:field="*{writer}">
         <br>
         <div th:if="${#fields.hasErrors('writer')}" th:errors="*{writer}" style="color:red"></div>
         <input th:if="${board_no}" type="hidden" th:field="*{board_no}"> <br>
+
+        <label>날짜: </label> <br>
+        <input type="date" th:field="*{regdate}">
+
         <input type="submit" value="저장">
     </form>
     <p th:unless="${boardForm.newBoard}">

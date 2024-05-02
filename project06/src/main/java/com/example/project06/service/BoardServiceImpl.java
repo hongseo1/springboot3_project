@@ -1,12 +1,13 @@
-package com.example.BoardTest.service;
+package com.example.project06.service;
 
-import com.example.BoardTest.entity.Board;
-import com.example.BoardTest.repository.BoardRepository;
+import com.example.project06.entity.Board;
+import com.example.project06.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
+
 @Service
 @Transactional
 public class BoardServiceImpl implements BoardService{

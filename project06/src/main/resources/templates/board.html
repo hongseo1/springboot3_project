@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{commons/layout}">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/board.css"/>
+</head>
+<body>
+    <th:block layout:fragment="content">
+        <section class="board_wrap cont_width">
+            <ul class="sub_page_menu cf">
+                <li class="first fl"><a href="index" tabindex="118">홈</a></li>
+                <li class="fl"><a href="#" tabindex="119">고객지원</a>
+                    <ul class="sub_menu">
+                        <li><a href="#" tabindex="120">상품</a></li>
+                        <li><a href="#" tabindex="121">이벤트/혜택</a></li>
+                        <li class="active"><a href="#" tabindex="122">고객지원</a></li>
+                        <li><a href="#" tabindex="123">내정보</a></li>
+                        <li><a href="#" tabindex="124">유모바일</a></li>
+                    </ul>
+                </li>
+                <li class="last fl"><a href="#" tabindex="125">일반 게시판</a>
+                    <ul class="sub_menu">
+                        <li class="active"><a href="board" tabindex="126">일반 게시판</a></li>
+                        <li><a href="qaboard" tabindex="127">Q&A 게시판</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="board" class="board">
+                <h2>일반 게시판</h2>
+                <form action="#" id="search_bar">
+                    <input type="text" name="search_txt" placeholder="검색어를 입력해주세요." id="search_txt">
+                    <button type="button" class="search_btn">검색</button>
+                </form>
+                <div class="board_list_wrap" th:if="${boardForm.newBoard}">
+                    <div id="board_list" th:unless="${#lists.isEmpty(list)}">
+                        <div class="board_header cf">
+                            <div class="num fl">번호</div>
+                            <div class="subject fl">제목</div>
+                            <div class="writer fl">작성자</div>
+                            <div class="date fl">등록일</div>
+                        </div>
+                        <div class="board_tr cf" th:each="obj : ${list}">
+                            <div class="num notice fl" th:text="${obj.board_no}"></div>
+                            <div class="subject fl">
+                                <a th:href="@{/detail/{board_no}(board_no=${obj.board_no})}" tabindex="128" th:text="${obj.title}"></a>
+                            </div>
+                            <div class="writer fl" th:text="${obj.writer}"></div>
+                            <div class="date fl" th:text="${obj.regdate}"></div>
+                        </div>
+                    </div>
+                    <div class="board_bt cf">
+                        <div class="board_page_num cf">
+                            <div class="page_arrow all_prev fl">처음으로</div>
+                            <div class="page_arrow prev fl">이전</div>
+                            <div class="num fl">1</div>
+                            <div class="num fl">2</div>
+                            <div class="num fl">3</div>
+                            <div class="num active fl">4</div>
+                            <div class="num fl">5</div>
+                            <div class="page_arrow next fl">다음</div>
+                            <div class="page_arrow all_next fl">마지막으로</div>
+                        </div>
+                        <button type="button" class="write_btn fr" th:onclick="|location.href='@{/create}'|">글쓰기</button>
+                    </div>
+                </div>
+                <p th:if="${#lists.isEmpty(list)}">등록된 게시글이 없습니다.</p>
+            </div>
+        </section><!--board-->
+    </th:block>
+</body>
+</html>
