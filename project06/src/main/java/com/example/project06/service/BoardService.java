@@ -6,7 +6,8 @@ import java.util.Optional;
 
 public interface BoardService {
     Iterable<Board> selectAll();
-    Optional<Board> selectOneByNo(Integer board_no);
+    Board selectOneByNo(Integer board_no);
+    /*Board selectOneByNo(Integer board_no);*/
 
     void insertBoard(Board board);
     void updateBoard(Board board);

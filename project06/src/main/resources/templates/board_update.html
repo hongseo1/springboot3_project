@@ -27,26 +27,21 @@
                     </ul>
                 </li>
             </ul>
-            <div id="board_detail" class="board board_view">
+            <div id="board_create" class="board">
                 <h2>일반 게시판</h2>
-                <div class="board_head cf">
-                    <div class="board_tit fl">
-                        제목: <span th:text="${board.title}">제목</span>
-                    </div>
-                    <div class="board_info fr">
-                        <p th:text="${board.writer}">작성자</p>
-                        <p th:text="${board.regdate}">등록일</p>
-                    </div>
-                </div>
-                <div class="board_cont">
-                    <p th:text="${board.content}">내용</p>
-                </div>
-                <div class="board_foot cf">
-                    <button type="button"th:onclick="|location.href='@{/board}'|" class="fl list">목록</button>
-                    <button type="button"th:onclick="|location.href='@{/boardUpdate/{board_no}(board_no=${board.board_no})}'|" class="fl">변경</button>
-                    <button type="button"th:onclick="|location.href='@{/board/delete(board_no=${board.board_no})}'|" class="fl">삭제</button>
-                </div>
             </div>
+            <h3>게시글 내용</h3>
+            <form method="post" th:action="@{/update/{board_no}(board_no=${board.board_no})}">
+                <div class="board_title">
+                    <textarea th:field="${board.title}"></textarea>
+                </div>
+                <textarea th:field="${board.content}"></textarea>
+                <input th:field="${board.writer}">
+                <p th:text="${board.regdate}"></p>
+                <input type="submit" value="저장">
+            </form>
+            <!--<button type="button" th:onclick="|location.href='@{/detail/{board_no}(board_no=${obj.board_no})}'|">취소</button>-->
+            <a href="#" th:href="@{/board}">목록</a>
         </section>
     </th:block>
 </body>

@@ -16,8 +16,8 @@
 .sub_page_menu>li .sub_menu li a:hover, .sub_page_menu>li .sub_menu li.active a{color: #333333; font-weight: 600;}
 .sub_page_menu>li:hover .sub_menu{display: block;}
 
-#board, #board_create{padding: 100px 0;}
-#board h2, #board_create h2{margin-bottom: 50px; text-align: center; font-size: 1.8em; font-weight: bold; color: #333333;}
+#board, #board_create, #board_detail{padding: 100px 0;}
+#board h2, #board_create h2, #board_detail h2{margin-bottom: 50px; text-align: center; font-size: 1.8em; font-weight: bold; color: #333333;}
 #search_bar{position: relative; height: 45px; float: right;}
 #search_bar #search_txt{padding: 15px 50px 15px 15px; border: 1px solid #ddd; border-radius: 10px;}
 #search_bar .search_btn{position: absolute; right: 15px; top: 1px; width: 20px; height: 100%; font-size: 0; background: url(../../images/search_icon.png) no-repeat center; background-size: contain; border: none;}
@@ -39,6 +39,24 @@
 #board_list .board_tr .subject a{display: block; padding: 20px 0; color: #333333; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer;}
 #board_list .board_tr .notice{color: #e62d7d; font-weight: bold;}
 #board_list .board_tr .new{padding-right: 10px; color: #7c40ce; font-weight: bold;}
+
+.board_view{position: relative; width: 100%;}
+.board_view .board_head{padding: 25px; line-height: 100%; border-top: 1px solid #333333;}
+.board_view .board_head .board_tit{font-size: 20px; font-weight: bold;}
+.board_view p{display: block; font-size: 16px; color: #333333;}
+.board_view .board_info>p{float: left;}
+.board_view .board_info>p:after{content: ' | '; display: block; float: right; margin: 0 10px;}
+.board_view .board_info>p:last-child:after{content: '';}
+.board_view .board_cont{padding: 25px; margin-bottom: 50px; border-top: 1px solid #dddddd; border-bottom: 1px solid #dddddd;}
+.board_view .board_foot{position: absolute; right: 0;}
+.board_view .board_foot button{padding: 10px 15px; margin-left: 10px; background: #dddddd; color: #333333; font-size: 16px; border: 0; outline: 0; cursor: pointer; transition: all 0.3s;}
+.board_view .board_foot button:hover{background: #7c40ce; color: #ffffff;}
+.board_view .board_foot button.list, .board_view .board_foot button.list:hover{background: #662d91; color: #ffffff;}
+
+.board_create form{border-top: 1px solid #333333;}
+.board_create .board_create_li{border-bottom: 1px solid #dddddd;}
+.board_create .board_create_li span{display: block; float: left; width: 10%;}
+.board_create input, .board_create textarea{width: 89%; float: right; resize: none;}
 
 #board .board_bt{position: relative;}
 #board .board_bt .board_page_num{position: relative; float: left; left: 50%; text-align: center;}

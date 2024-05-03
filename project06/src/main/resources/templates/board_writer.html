@@ -27,35 +27,29 @@
                     </ul>
                 </li>
             </ul>
-            <div id="board_create" class="board">
+            <div id="board_create" class="board board_create">
                 <h2>일반 게시판</h2>
+                <form method="post" th:action="@{/insert}" th:object="${boardForm}">
+                    <input th:if="${board_no}" type="hidden" th:field="*{board_no}">
+                    <input th:if="${regdate}" type="hidden" th:field="*{regdate}">
+                    <div class="board_create_li cf">
+                        <span>작성자: </span><input type="text" th:field="*{writer}">
+                        <div th:if="${#fields.hasErrors('writer')}" th:errors="*{writer}" style="color:red"></div>
+                    </div>
+                    <div class="board_create_li board_tit cf">
+                        <span>제목: </span><textarea rows="5" cols="50" th:field="*{title}"></textarea>
+                        <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" style="color:red"></div>
+                    </div>
+                    <div class="board_create_li cf">
+                        <span>내용: </span><textarea rows="5" cols="50" th:field="*{content}"></textarea> <br>
+                        <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" style="color:red"></div>
+                    </div>
+                    <input type="submit" value="저장" class="save_btn">
+                </form>
+                <p th:unless="${boardForm.newBoard}">
+                    <a href="#" th:href="@{/board}">목록</a>
+                </p>
             </div>
-            <p th:if="${complete}" th:text="${complete}" style="color:blue"></p>
-
-            <form method="post" th:action="${boardForm.newBoard}? @{/insert} : @{/update}"
-                  th:object="${boardForm}">
-                <label>제목: </label> <br>
-                <textarea rows="5" cols="50" th:field="*{title}"></textarea> <br>
-                <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" style="color:red"></div>
-                <br>
-                <label>내용: </label> <br>
-                <textarea rows="5" cols="50" th:field="*{content}"></textarea> <br>
-                <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" style="color:red"></div>
-                <br>
-                <label>작성자: </label> <br>
-                <input type="text" th:field="*{writer}">
-                <br>
-                <div th:if="${#fields.hasErrors('writer')}" th:errors="*{writer}" style="color:red"></div>
-                <input th:if="${board_no}" type="hidden" th:field="*{board_no}"> <br>
-
-                <label>날짜: </label> <br>
-                <input type="date" th:field="*{regdate}">
-
-                <input type="submit" value="저장">
-            </form>
-            <p th:unless="${boardForm.newBoard}">
-                <a href="#" th:href="@{/board}">목록</a>
-            </p>
         </section>
     </th:block>
 </body>

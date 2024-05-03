@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -18,6 +19,6 @@ public class BoardForm {
     private String content;
     @NotBlank
     private String writer;
-    private Date regdate;
+    private LocalDate regdate;
     private  Boolean newBoard;
 }

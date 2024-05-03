@@ -11,6 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Controller
@@ -29,99 +30,62 @@ public class BoardController {
     @GetMapping("/create")
     public String showWriter(BoardForm boardForm, Model model){
         boardForm.setNewBoard(true); //등록인지 아닌지
-
         model.addAttribute("title", "등록 폼");
 
         return "board_writer";
     }
-    @GetMapping("detail/{board_no}")
-    public String detail(@Validated BoardForm boardForm, BindingResult result, Model model, RedirectAttributes redirectAttributes){
-
-
-
-
-        Board board = makeBoard(boardForm);
-        return "redirect:/detail" + board.getBoard_no();
-    }
 
     @PostMapping("/insert")
-    public String insert(Board board) {
-        //@Validated BoardForm boardForm, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes
-        /*
+    public String insert(@Validated BoardForm boardForm, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
         Board board = new Board();
         board.setTitle(boardForm.getTitle());
         board.setContent(boardForm.getContent());
         board.setWriter(boardForm.getWriter());
-        board.setRegdate(boardForm.getRegdate());
+        LocalDate regdate = LocalDate.now();
+        board.setRegdate(regdate);
 
         if(!bindingResult.hasErrors()){
-            service.insertBoard(test);
+            service.insertBoard(board);
             redirectAttributes.addFlashAttribute("complete", "등록이 완료되었습니다.");
             return "redirect:/board";
         }else {
             return showBoard(boardForm, model);
         }
-        */
-        service.insertBoard(board);
+
+    }
+
+    @GetMapping("/detail/{board_no}")
+    public String detail(@PathVariable Integer board_no, Model model){
+        model.addAttribute("board", service.selectOneByNo(board_no));
+
+        return "board_detail";
+    }
+
+    @GetMapping("/boardUpdate/{board_no}")
+    public String showUpdate(@PathVariable Integer board_no, Model model){
+        model.addAttribute("board", service.selectOneByNo(board_no));
+        return "board_update";
+    }
+
+    @PostMapping("/update/{board_no}")
+    public String update(@PathVariable Integer board_no, Board board, Model model){
+        model.addAttribute("board", service.selectOneByNo(board_no));
+
+        board.setTitle(board.getTitle());
+        board.setContent(board.getContent());
+        board.setWriter(board.getWriter());
+        LocalDate regdate = LocalDate.now();
+        board.setRegdate(regdate);
+        service.updateBoard(board);
+        return "redirect:/detail/{board_no}";
+
+
+    }
+
+    @GetMapping("/board/delete")
+    public String delete(Integer board_no){
+        service.deleteBoardByNo(board_no);
         return "redirect:/board";
     }
 
-    @GetMapping("create/{board_no}")
-    public String showUpdate(BoardForm boardForm, @PathVariable Integer board_no, Model model){
-        Optional<Board> boardOpt = service.selectOneByNo(board_no);
-        Optional<BoardForm> boardFormOpt = boardOpt.map(b -> makeBoardForm(b)); //(arrow함수) 함수가 두번 실행
-        if(boardFormOpt.isPresent()){
-            boardForm = boardFormOpt.get();
-        }
-        makeUpdateModel(boardForm, model);
-        return "board_writer";
-    }
-
-    private void makeUpdateModel(BoardForm boardForm, Model model){
-        model.addAttribute("board_no", boardForm.getBoard_no());
-        boardForm.setNewBoard(false);
-        model.addAttribute("boardForm", boardForm); //최종 수정본을 testForm에 전달(저장)
-        model.addAttribute("title", "변경 폼");
-    }
-
-    @PostMapping("/update")
-    public String update(@Validated BoardForm boardForm, BindingResult result, Model model, RedirectAttributes redirectAttributes){
-        Board board = makeBoard(boardForm);
-        if(!result.hasErrors()){
-            service.updateBoard(board);
-            redirectAttributes.addFlashAttribute("complete", "변경이 완료되었습니다.");
-            return "redirect:/board" + board.getBoard_no();
-        }else {
-            makeUpdateModel(boardForm, model);
-            return "board";
-        }
-    }
-
-    private Board makeBoard(BoardForm boardForm){
-        Board board = new Board();
-        board.setBoard_no(boardForm.getBoard_no());
-        board.setTitle(boardForm.getTitle());
-        board.setContent(boardForm.getContent());
-        board.setWriter(boardForm.getWriter());
-        board.setRegdate(board.getRegdate());
-        return board;
-    }
-
-    private BoardForm makeBoardForm(Board board){
-        BoardForm form = new BoardForm();
-        form.setBoard_no(board.getBoard_no());
-        form.setTitle(board.getTitle());
-        form.setContent(board.getContent());
-        form.setWriter(board.getWriter());
-        form.setRegdate(board.getRegdate());
-        form.setNewBoard(false);
-        return form;
-    }
-
-    @PostMapping("/delete")
-    public String delete(@RequestParam("board_no") String board_no, Model model, RedirectAttributes redirectAttributes){
-        service.deleteBoardByNo(Integer.parseInt(board_no));
-        redirectAttributes.addFlashAttribute("delcomplete", "삭제 완료했습니다.");
-        return "redirect:/board";
-    }
 }
