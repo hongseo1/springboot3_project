@@ -41,10 +41,12 @@
                 <div class="board_cont">
                     <p th:text="${board.content}">내용</p>
                 </div>
-                <div class="board_foot cf">
-                    <button type="button"th:onclick="|location.href='@{/board}'|" class="fl list">목록</button>
-                    <button type="button"th:onclick="|location.href='@{/boardUpdate/{board_no}(board_no=${board.board_no})}'|" class="fl">변경</button>
-                    <button type="button"th:onclick="|location.href='@{/board/delete(board_no=${board.board_no})}'|" class="fl">삭제</button>
+                <div class="board_bt cf">
+                    <div class="btn_wrap cf">
+                        <button type="button"th:onclick="|location.href='@{/board}'|" class="fl btn list_btn">목록</button>
+                        <button type="button"th:onclick="|location.href='@{/boardUpdate/{board_no}(board_no=${board.board_no})}'|" class="fl btn update_btn">변경</button>
+                        <button type="button"th:onclick="|location.href='@{/board/delete(board_no=${board.board_no})}'|" class="fl btn remove_btn">삭제</button>
+                    </div>
                 </div>
             </div>
         </section>

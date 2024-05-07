@@ -50,6 +50,7 @@
                             <div class="date fl" th:text="${obj.regdate}"></div>
                         </div>
                     </div>
+                    <p th:if="${#lists.isEmpty(list)}">등록된 게시글이 없습니다.</p>
                     <div class="board_bt cf">
                         <div class="board_page_num cf">
                             <div class="page_arrow all_prev fl">처음으로</div>
@@ -62,10 +63,11 @@
                             <div class="page_arrow next fl">다음</div>
                             <div class="page_arrow all_next fl">마지막으로</div>
                         </div>
-                        <button type="button" class="write_btn fr" th:onclick="|location.href='@{/create}'|">글쓰기</button>
+                        <div class="btn_wrap cf">
+                            <button type="button" class="fl btn write_btn" th:onclick="|location.href='@{/create}'|">글쓰기</button>
+                        </div>
                     </div>
                 </div>
-                <p th:if="${#lists.isEmpty(list)}">등록된 게시글이 없습니다.</p>
             </div>
         </section><!--board-->
     </th:block>
