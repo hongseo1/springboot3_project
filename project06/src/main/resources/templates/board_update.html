@@ -29,7 +29,6 @@
             </ul>
             <div id="board_update" class="board board_create_update">
                 <h2>일반 게시판</h2>
-                <h3>수정</h3>
                 <form method="post" th:action="@{/update/{board_no}(board_no=${board.board_no})}">
                     <div class="board_cr_up_li board_tit cf">
                         <span>제목 </span><textarea th:field="${board.title}"></textarea>

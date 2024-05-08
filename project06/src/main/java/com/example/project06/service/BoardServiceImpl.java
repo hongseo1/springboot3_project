@@ -3,6 +3,9 @@ package com.example.project06.service;
 import com.example.project06.entity.Board;
 import com.example.project06.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +18,7 @@ public class BoardServiceImpl implements BoardService{
     BoardRepository repository;
 
     @Override
-    public Iterable<Board> selectAll() {
+    public Iterable<Board> getList() {
         return repository.findAll();
     }
 
@@ -37,5 +40,10 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public void deleteBoardByNo(Integer board) {
         repository.deleteById(board);
+    }
+
+    public Page<Board> getList(int page){
+        Pageable pageable = PageRequest.of(page, 10);
+        return this.repository.findAll(pageable);
     }
 }

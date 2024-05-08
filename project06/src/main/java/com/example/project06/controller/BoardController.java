@@ -4,15 +4,17 @@ import com.example.project06.entity.Board;
 import com.example.project06.form.BoardForm;
 import com.example.project06.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 @Controller
 public class BoardController {
@@ -20,9 +22,11 @@ public class BoardController {
     BoardService service;
 
     @GetMapping("board")
-    public String showBoard(BoardForm boardForm, Model model){
+    public String showBoard(BoardForm boardForm, Model model, @RequestParam(value="page", defaultValue = "0") int page){
         boardForm.setNewBoard(true);
-        Iterable<Board> list = service.selectAll();
+
+        Page<Board> list = this.service.getList(page);
+        /*Iterable<Board> list = service.selectAll();*/
 
         model.addAttribute("list", list);
         return "board";
@@ -36,7 +40,7 @@ public class BoardController {
     }
 
     @PostMapping("/insert")
-    public String insert(@Validated BoardForm boardForm, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+    public String insert(@Validated BoardForm boardForm) {
         Board board = new Board();
         board.setTitle(boardForm.getTitle());
         board.setContent(boardForm.getContent());
@@ -44,13 +48,15 @@ public class BoardController {
         LocalDate regdate = LocalDate.now();
         board.setRegdate(regdate);
 
-        if(!bindingResult.hasErrors()){
+        /*if(!bindingResult.hasErrors()){
             service.insertBoard(board);
             redirectAttributes.addFlashAttribute("complete", "등록이 완료되었습니다.");
             return "redirect:/board";
         }else {
             return showBoard(boardForm, model);
-        }
+        }*/
+        service.insertBoard(board);
+        return "redirect:/board";
 
     }
 
@@ -78,8 +84,6 @@ public class BoardController {
         board.setRegdate(regdate);
         service.updateBoard(board);
         return "redirect:/detail/{board_no}";
-
-
     }
 
     @GetMapping("/board/delete")
@@ -87,5 +91,4 @@ public class BoardController {
         service.deleteBoardByNo(board_no);
         return "redirect:/board";
     }
-
 }
