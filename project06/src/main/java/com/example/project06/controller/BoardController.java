@@ -22,15 +22,19 @@ public class BoardController {
     BoardService service;
 
     @GetMapping("board")
-    public String showBoard(BoardForm boardForm, Model model, @RequestParam(value="page", defaultValue = "0") int page){
+    public String showBoard(BoardForm boardForm, Model model, @PageableDefault(sort = "board_no", direction = Sort.Direction.DESC) Pageable pageable){
+        //@RequestParam(value="page", defaultValue = "0") int page
+        //@PageableDefault(sort = "board_no", direction = Sort.Direction.DESC) Pageable pageable
         boardForm.setNewBoard(true);
 
-        Page<Board> list = this.service.getList(page);
-        /*Iterable<Board> list = service.selectAll();*/
+        Page<Board> list = this.service.getList(pageable);
+        Iterable<Board> listV = service.getList();
 
         model.addAttribute("list", list);
+        model.addAttribute("listV", listV);
         return "board";
     }
+
     @GetMapping("/create")
     public String showWriter(BoardForm boardForm, Model model){
         boardForm.setNewBoard(true); //등록인지 아닌지

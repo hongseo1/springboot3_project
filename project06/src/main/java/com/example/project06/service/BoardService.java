@@ -2,8 +2,7 @@ package com.example.project06.service;
 
 import com.example.project06.entity.Board;
 import org.springframework.data.domain.Page;
-
-import java.util.Optional;
+import org.springframework.data.domain.Pageable;
 
 public interface BoardService {
     Iterable<Board> getList();
@@ -14,5 +13,5 @@ public interface BoardService {
     void updateBoard(Board board);
     void deleteBoardByNo(Integer board_no);
 
-    Page<Board> getList(int page);
+    Page<Board> getList(Pageable pageable);
 }

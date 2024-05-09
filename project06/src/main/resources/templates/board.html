@@ -56,6 +56,7 @@
                     <div class="board_bt cf">
                         <div th:if="${!list.isEmpty()}" class="board_page_num cf">
                             <div class="page_arrow prev fl" th:classappend="${!list.hasPrevious} ? 'none'">
+                                <!--<button th:onclick="|location.href='@{?page=${list.number-1}}'|">이전</button>-->
                                 <a th:href="@{|?page=${list.number-1}|}">이전</a>
                             </div>
                             <div th:each="page: ${#numbers.sequence(0, list.totalPages-1)}"
