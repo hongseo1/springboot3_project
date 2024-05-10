@@ -55,8 +55,10 @@
                     <p th:if="${#lists.isEmpty(list)}">등록된 게시글이 없습니다.</p>
                     <div class="board_bt cf">
                         <div th:if="${!list.isEmpty()}" class="board_page_num cf">
+                            <div class="page_arrow all_prev fl" th:classappend="${!list.hasPrevious} ? 'none'">
+                                <a th:href="@{|?page=${list.number*0}|}">처음으로</a>
+                            </div>
                             <div class="page_arrow prev fl" th:classappend="${!list.hasPrevious} ? 'none'">
-                                <!--<button th:onclick="|location.href='@{?page=${list.number-1}}'|">이전</button>-->
                                 <a th:href="@{|?page=${list.number-1}|}">이전</a>
                             </div>
                             <div th:each="page: ${#numbers.sequence(0, list.totalPages-1)}"
@@ -67,6 +69,9 @@
                             </div>
                             <div class="page_arrow next fl" th:classappend="${!list.hasNext} ? 'none'">
                                 <a th:href="@{|?page=${list.number+1}|}">다음</a>
+                            </div>
+                            <div class="page_arrow all_next fl" th:classappend="${!list.hasNext} ? 'none'">
+                                <a th:href="@{|?page=${list.number+1}|}">마지막으로</a>
                             </div>
                         </div>
                         <!--<div class="board_page_num cf">

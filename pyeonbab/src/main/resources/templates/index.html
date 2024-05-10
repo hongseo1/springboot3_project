@@ -1,0 +1,3185 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>편밥</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="/css/swiper.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/fakeLoader.css">
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script src="/js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="/js/swiper.js"></script>
+    <script src="/js/fakeLoader.js"></script>
+    <script src="/js/search_map.js"></script>
+    <script src="/js/main.js"></script>
+</head>
+<body>
+    <div id="main_page" class="home" data-role="page" data-url="main_page">
+        <div class="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="header_wrap">
+                <!-- <h1 id="logo"><a href=""><img src="" alt=""></a></h1> -->
+                <a href="address_input.html" class="address">주소를 설정해 주세요.</a>
+                <div class="head_icon">
+                    <div class="alarm"><a href="#"></a></div>
+                    <div class="basket"><a href="#"></a></div>
+                </div>
+            </div>
+        </div><!--header-->
+        <div class="conts_wrap" data-role="content">
+            <div class="sec search_pickup sec_width">
+                <div class="cont_box_wrap cont_box01">
+                    <a href="#" class="cont_box find_stock">
+                        <p class="cont_tit">재고 찾기<span class="sub_tit tit_line_height">상품 재고<br/>미리 확인 하기</span></p>
+                        <p class="icon_img"></p>
+                    </a>
+                    <a href="#" class="cont_box pickup">
+                        <p class="cont_tit">픽업 하기<span class="sub_tit tit_line_height">구매는<br/>더 편리하게</span></p>
+                        <p class="icon_img"></p>
+                    </a>
+                </div>
+                <div class="cont_box_wrap cont_box02">
+                    <a href="#" class="cont_box my_pick">
+                        <p class="cont_tit">MY Pick<span class="sub_tit">지금은 비어있어요</span></p>
+                        <p class="icon_img"></p>
+                    </a>
+                </div>
+            </div><!--재고찾기, 픽업, my pick-->
+            <div class="sec service sec_width">
+                <p class="cont_tit sec_width">많이 찾는 서비스<span class="sub_tit tit_line_height">많이 찾는 서비스를 모아놨어요!</span></p>
+                <div class="service_conts">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <p class="service_icon gift"></p>
+                                <p class="service_tit">이벤트</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="service_icon hot"></p>
+                                <p class="service_tit">인기상품</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="service_icon coupon"></p>
+                                <p class="service_tit">쿠폰</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="service_icon plan"></p>
+                                <p class="service_tit">기획전</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="service_icon review"></p>
+                                <p class="service_tit">나의리뷰</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="service_icon card"></p>
+                                <p class="service_tit">카드등록</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="service_icon search"></p>
+                                <p class="service_tit">재고찾기</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="service_icon reserve"></p>
+                                <p class="service_tit">택배예약</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="service_icon talk"></p>
+                                <p class="service_tit">상담하기</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="service_icon call"></p>
+                                <p class="service_tit">고객센터</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div><!--많이 찾는 서비스-->
+            <div class="sec recipe">
+                <p class="cont_tit sec_width">인기 레시피<span class="sub_tit tit_line_height">어제 제일 많이 본 인기있는 레시피 모음</span></p>
+                <div class="swiper recipe_tab">
+                    <ul class="cf swiper-wrapper tab_menu">
+                        <li class="fl swiper-slide on"><a href="#">컵라면</a></li>
+                        <li class="fl swiper-slide"><a href="#">삼각김밥</a></li>
+                        <li class="fl swiper-slide"><a href="#">김밥</a></li>
+                        <li class="fl swiper-slide"><a href="#">아이스크림</a></li>
+                        <li class="fl swiper-slide"><a href="#">음료수</a></li>
+                        <li class="fl swiper-slide"><a href="#">과자</a></li>
+                    </ul>
+                </div>
+                <div class="recipe_conts">
+                    <div class="swiper recipe_cont01">
+                        <ul class="cf swiper-wrapper">
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <p class="recipe_img img"><img src="images/recipe_cont_img01.jpg" alt="레시피 이미지"></p>
+                                    <div class="cont_info">
+                                        <p class="tit">컵라면과 김밥은 항상 옳다!!!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <p class="recipe_img img"><img src="images/recipe_cont_img02.jpg" alt="레시피 이미지"></p>
+                                    <div class="cont_info">
+                                        <p class="tit">짜파게티와 불짬뽕의 조합은 존맛!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.6</p>
+                                            <p class="rview_num">(70)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <p class="recipe_img img"><img src="images/recipe_cont_img03.jpg" alt="레시피 이미지"></p>
+                                    <div class="cont_info">
+                                        <p class="tit">마크정식 리뉴얼 레시피</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.8</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <p class="recipe_img img"><img src="images/recipe_cont_img01.jpg" alt="레시피 이미지"></p>
+                                    <div class="cont_info">
+                                        <p class="tit">컵라면과 김밥은 항상 옳다!!!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <p class="recipe_img img"><img src="images/recipe_cont_img02.jpg" alt="레시피 이미지"></p>
+                                    <div class="cont_info">
+                                        <p class="tit">짜파게티와 불짬뽕의 조합은 존맛!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swiper recipe_cont02">
+                        <ul class="cf swiper-wrapper">
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img03.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">컵라면과 김밥은 항상 옳다!!!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img02.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">짜파게티와 불짬뽕의 조합은 존맛!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.6</p>
+                                            <p class="rview_num">(70)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img03.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">마크정식 리뉴얼 레시피</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.8</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img01.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">컵라면과 김밥은 항상 옳다!!!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img02.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">짜파게티와 불짬뽕의 조합은 존맛!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swiper recipe_cont03">
+                        <ul class="cf swiper-wrapper">
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img03.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">컵라면과 김밥은 항상 옳다!!!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img02.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">짜파게티와 불짬뽕의 조합은 존맛!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.6</p>
+                                            <p class="rview_num">(70)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img03.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">마크정식 리뉴얼 레시피</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.8</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img01.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">컵라면과 김밥은 항상 옳다!!!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img02.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">짜파게티와 불짬뽕의 조합은 존맛!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swiper recipe_cont04">
+                        <ul class="cf swiper-wrapper">
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img01.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">컵라면과 김밥은 항상 옳다!!!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img02.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">짜파게티와 불짬뽕의 조합은 존맛!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.6</p>
+                                            <p class="rview_num">(70)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img03.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">마크정식 리뉴얼 레시피</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.8</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img01.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">컵라면과 김밥은 항상 옳다!!!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img02.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">짜파게티와 불짬뽕의 조합은 존맛!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swiper recipe_cont05">
+                        <ul class="cf swiper-wrapper">
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img01.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">컵라면과 김밥은 항상 옳다!!!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img02.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">짜파게티와 불짬뽕의 조합은 존맛!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.6</p>
+                                            <p class="rview_num">(70)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img03.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">마크정식 리뉴얼 레시피</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.8</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img01.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">컵라면과 김밥은 항상 옳다!!!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img02.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">짜파게티와 불짬뽕의 조합은 존맛!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swiper recipe_cont06">
+                        <ul class="cf swiper-wrapper">
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img03.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">컵라면과 김밥은 항상 옳다!!!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img02.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">짜파게티와 불짬뽕의 조합은 존맛!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.6</p>
+                                            <p class="rview_num">(70)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img03.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">마크정식 리뉴얼 레시피</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.8</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img01.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">컵라면과 김밥은 항상 옳다!!!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="fl swiper-slide">
+                                <a href="#">
+                                    <img src="images/recipe_cont_img02.jpg" alt="레시피 이미지" class="recipe_img img">
+                                    <div class="cont_info">
+                                        <p class="tit">짜파게티와 불짬뽕의 조합은 존맛!</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--인기 레시피-->
+        </div><!--content-->
+        <div class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <ul>
+                <li class="home on">
+                    <a href="#main_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon home"></p>홈</a>
+                </li>
+                <li class="search">
+                    <a href="#search_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon search"></p>검색</a>
+                </li>
+                <li class="recipe">
+                    <a href="#recipe_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon recipe"></p>레시피</a>
+                </li>
+                <li class="user">
+                    <a href="#" class="ui-btn ui-corner-all" data-role="button"><p class="icon user"></p>MY</a>
+                </li>
+            </ul>
+        </div><!--ui_fixed-->
+    </div><!--main_page_wrap-->
+    <div id="login_alert">
+        <div class="alert_box">
+            <div class="alert_text">
+                로그인이 필요한 서비스입니다. <br/>
+                로그인 하시겠어요?
+            </div>
+            <div class="btn_wrap">
+                <a href="#main_page" class="cancell" type="reset">취소</a>
+                <a href="#login_page" class="check" type="submit">확인</a>
+            </div>
+        </div>
+    </div><!--login_alert-->
+    <div id="delete_img">
+		<div class="alert_box">
+			<div class="alert_text">
+				이미지를 <br/>
+				삭제 하시겠습니까? 
+			</div>
+			<div class="btn_wrap">
+				<a href="#" class="cancell" type="reset">취소</a>
+				<a href="#" class="check" type="submit">확인</a>
+			</div>
+		</div>
+	</div><!-- delete_img -->
+    <div id="login_page" class="login" data-role="page" data-url="login_page">
+        <div class="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="header_wrap">
+                <!-- <h1 id="logo"><a href=""><img src="" alt=""></a></h1> -->
+                <a href="#" class="back_btn" data-rel="back" data-direction="reverse"></a>
+                <h2 class="page_tit">로그인</h2>
+                <div class="head_icon">
+                    <div class="basket"><a href="#"></a></div>
+                </div>
+            </div>
+        </div><!--header-->
+        <div class="conts_wrap" data-role="content">
+            <form action="#" class="sec sec_width">
+                <fieldset class="user_input_wrap">
+                    <label for="user_id" class="user_icon user_id_icon"></label>
+                    <input type="text" name="user_id" id="user_id" class="user_input" placeholder="이메일을 입력해 주세요."/>
+                </fieldset>
+                <fieldset class="user_input_wrap">
+                    <label for="user_pw" class="user_icon user_pw_icon"></label>
+                    <input type="password" name="user_pw" id="user_pw" class="user_input" placeholder="비밀번호를 입력해 주세요."/>
+                    <span class="user_icon pw_eye off"></span>
+                </fieldset>
+                <fieldset class="login_ck_wrap">
+                    <label for="login_ck" class="user_icon ck_icon">로그인 상태 유지</label>
+                    <input type="checkbox" name="login_ck" id="login_ck"/>
+                </fieldset>
+                <button type="submit" class="login_btn">로그인</button>
+                <div class="pw_search_join">
+                    <a href="#">비밀번호 찾기</a>
+                    <a href="#join_page">회원 가입</a>
+                </div>
+                <div class="sns_login">
+                    <div class="google"><a href="#main_page"></a></div>
+                    <div class="kakao"></div>
+                    <div class="naver"></div>
+                </div>
+            </form>
+        </div><!--content-->
+        <div class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <ul>
+                <li class="home">
+                    <a href="#main_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon home"></p>홈</a>
+                </li>
+                <li class="search">
+                    <a href="#search_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon search"></p>검색</a>
+                </li>
+                <li class="recipe">
+                    <a href="#recipe_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon recipe"></p>레시피</a>
+                </li>
+                <li class="user on">
+                    <a href="#" class="ui-btn ui-corner-all" data-role="button"><p class="icon user"></p>MY</a>
+                </li>
+            </ul>
+        </div><!--ui_fixed-->
+    </div><!--login_page_wrap-->
+    <div id="join_page" class="join" data-role="page" data-url="join_page">
+        <div class="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="header_wrap">
+                <!-- <h1 id="logo"><a href=""><img src="" alt=""></a></h1> -->
+                <a href="#" class="back_btn" data-rel="back" data-direction="reverse"></a>
+                <h2 class="page_tit">회원가입</h2>
+                <div class="head_icon">
+                    <div class="basket"><a href="#"></a></div>
+                </div>
+            </div>
+        </div><!--header-->
+        <div class="conts_wrap" data-role="content">]
+            <!--<form action="/index#login_page" method="post" class="sec sec_width">
+                <fieldset class="user_input_wrap">
+                    <label for="join_user_name">이름</label>
+                    <input type="text" name="join_user_name" id="join_user_name" class="user_input" placeholder="이름을 입력해 주세요."/>
+                </fieldset>
+                <fieldset class="user_input_wrap">
+                    <label for="join_user_id">아이디</label>
+                    <input type="text" name="join_user_id" id="join_user_id" class="user_input" placeholder="이메일을 입력해 주세요."/>
+                </fieldset>
+                <fieldset class="user_input_wrap">
+                    <label for="join_user_pw">비밀번호</label>
+                    <input type="password" name="join_user_pw" id="join_user_pw" class="user_input" placeholder="비밀번호를 입력해 주세요."/>
+                    <span class="user_icon pw_eye off"></span>
+                </fieldset>
+                <fieldset class="user_input_wrap">
+                    <label for="join_user_ad">주소</label>
+                    <input type="text" name="join_user_ad" id="join_user_ad" class="user_input" placeholder="주소를 입력해 주세요."/>
+                </fieldset>
+                <button type="submit" class="join_btn">회원가입</button>
+            </form>-->
+            <form action="/index#join_page" role="form" method="post" th:object="${memberFormDto}">
+                <div class="form-group">
+                    <label th:for="name">이름</label>
+                    <input type="text" th:field="*{name}" class="form-control" placeholder="이름을 입력해 주세요.">
+                    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="fieldError">Incorrect data</p>
+                </div>
+                <div class="form-group">
+                    <lable th:for="email">이메일 주소</lable>
+                    <input type="email" th:field="*{email}" class="form-control" placeholder="이메일을 입력해 주세요.">
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="fieldError">Incorrect data</p>
+                </div>
+                <div class="form-group">
+                    <lable th:for="password">비밀번호</lable>
+                    <input type="password" th:field="*{password}" class="form-control" placeholder="비밀번호를 입력입력해 주세요.">
+                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="fieldError">Incorrect data</p>
+                </div>
+                <div class="form-group">
+                    <lable th:for="address">주소</lable>
+                    <input type="text" th:field="*{address}" class="form-control" placeholder="주소를 입력해 주세요.">
+                    <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="fieldError">Incorrect data</p>
+                </div>
+                <diV style="text-align: center;">
+                    <button type="submit" class="btn btn-primary" style="">Submit</button>
+                </diV>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+            </form>
+        </div><!--content-->
+        <div class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <ul>
+                <li class="home">
+                    <a href="#main_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon home"></p>홈</a>
+                </li>
+                <li class="search">
+                    <a href="#search_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon search"></p>검색</a>
+                </li>
+                <li class="recipe">
+                    <a href="#recipe_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon recipe"></p>레시피</a>
+                </li>
+                <li class="user on">
+                    <a href="#" class="ui-btn ui-corner-all" data-role="button"><p class="icon user"></p>MY</a>
+                </li>
+            </ul>
+        </div><!--ui_fixed-->
+    </div><!--login_page_wrap-->
+    <div id="my_page" class="my" data-role="page" data-url="my_page">
+        <div class="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="header_wrap">
+                <!-- <h1 id="logo"><a href=""><img src="" alt=""></a></h1> -->
+                <a href="#" class="back_btn" data-rel="back" data-direction="reverse"></a>
+                <h2 class="page_tit">MY</h2>
+                <div class="head_icon">
+                    <div class="basket"><a href="#"></a></div>
+                </div>
+            </div>
+        </div><!--header-->
+        <div class="conts_wrap" data-role="content">
+            <div class="sec profile_cont_wrap">
+                <div class="profile_cont sec_width">
+                    <div class="profile_img_wrap">
+                        <div class="profile_img">
+                            <img src="images/profile_img.png" alt="내 프로필 사진">
+                        </div>
+                    </div>
+                    <div class="my_info">
+                        <div class="level">WELCOME</div>
+                        <div class="name">홍길동님</div>
+                        <div class="f_num">
+                            <div class="follower">팔로워 <span class="num">20</span></div>
+                            <div class="following">팔로잉 <span class="num">50</span></div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="sec_width">
+                    <li>
+                        <a href="#">
+                            <p class="icon eye"></p>
+                            <span>최근 본</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p class="icon card"></p>
+                            <span>구매내역</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#my_pick_page">
+                            <p class="icon heart"></p>
+                            <span>MY Pick</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p class="icon review"></p>
+                            <span>나의 후기</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#recipe_write_page">
+                            <p class="icon note"></p>
+                            <span>레시피 작성</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sec my_menu_wrap">
+                <ul class="sec_width">
+                    <li class="on"><a href="#">결제 정보 <span></span></a>
+                        <ul class="sub_menu">
+                            <li><a href="#">결제·적립·할인 설정</a></li>
+                            <li><a href="#">현금영수증 번호 관리</a></li>
+                            <li class="margin_none"><a href="#">모바일 영수증</a></li>
+                        </ul>
+                    </li>
+                    <li class="on"><a href="#">나의 정보 <span></span></a>
+                        <ul class="sub_menu">
+                            <li class="margin_none"><a href="#">개인 정보 관리</a></li>
+                            <li class="margin_none"><a href="#">주소 관리</a></li>
+                        </ul>
+                    </li>
+                    <li class="on"><a href="#">문의 및 공지 <span></span></a>
+                        <ul class="sub_menu">
+                            <li><a href="#">고객 센터</a></li>
+                            <li><a href="#">자주 묻는 질문</a></li>
+                            <li class="margin_none"><a href="#">공지 사항</a></li>
+                            <li class="margin_none"><a href="#">1:1 문의</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div><!--content-->
+        <div class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <ul>
+                <li class="home">
+                    <a href="#main_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon home"></p>홈</a>
+                </li>
+                <li class="search">
+                    <a href="#search_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon search"></p>검색</a>
+                </li>
+                <li class="recipe">
+                    <a href="#recipe_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon recipe"></p>레시피</a>
+                </li>
+                <li class="user on">
+                    <a href="#" class="ui-btn ui-corner-all" data-role="button"><p class="icon user"></p>MY</a>
+                </li>
+            </ul>
+        </div><!--ui_fixed-->
+    </div><!--my_page_wrap-->
+    <div id="my_pick_page" class="my_pick" data-role="page" data-url="my_pick_page">
+        <div class="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="header_wrap">
+                <!-- <h1 id="logo"><a href=""><img src="" alt=""></a></h1> -->
+                <a href="#" class="back_btn" data-rel="back" data-direction="reverse"></a>
+                <h2 class="page_tit">MY Pick</h2>
+                <div class="head_icon">
+                    <div class="basket"><a href="#"></a></div>
+                </div>
+            </div>
+        </div><!--header-->
+        <div class="conts_wrap" data-role="content">
+            <div class="sec">
+                <ul class="tab_menu sec_width">
+                    <li class="on"><a href="#">레시피</a></li>
+                    <li class="line"><a href="#">편의점 상품</a></li>
+                </ul>
+            </div>
+            <div class="list_wrap sec">
+                <div class="recipe_list sec_width">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <p class="recipe_img img"><img src="images/recipe_list_img01.jpg" alt="레시피 이미지"></p>
+                                <div class="cont_info">
+                                    <p class="tit">'불짜파게티' 짜파게티와 불짬뽕의 조합은 생각지도 못한 맛인데 너무 맛있어버리는 레시피</p>
+                                    <div class="more_info01">
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                        <p class="name">홍길동</p>
+                                    </div>
+                                    <div class="more_info02">
+                                        <div><p class="many icon"></p>2인분</div>
+                                        <div class="last"><p class="time icon"></p>30분</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="recipe_img img"><img src="images/recipe_list_img02.jpg" alt="레시피 이미지"></p>
+                                <div class="cont_info">
+                                    <p class="tit">불닭까르보 라면에 부재료 추가해서 레스토랑 파스트 따라잡기 레시피 공개</p>
+                                    <div class="more_info01">
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">5.0</p>
+                                            <p class="rview_num">(200)</p>
+                                        </div>
+                                        <p class="name">hong</p>
+                                    </div>
+                                    <div class="more_info02">
+                                        <div><p class="many icon"></p>2인분</div>
+                                        <div class="last"><p class="time icon"></p>40분</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="recipe_img img"><img src="images/recipe_list_img03.jpg" alt="레시피 이미지"></p>
+                                <div class="cont_info">
+                                    <p class="tit"> 아보카도랑 편의점 치즈의 조합 최고의 술 안주!!</p>
+                                    <div class="more_info01">
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">3.6</p>
+                                            <p class="rview_num">(10)</p>
+                                        </div>
+                                        <p class="name">dlfma</p>
+                                    </div>
+                                    <div class="more_info02">
+                                        <div><p class="many icon"></p>3인분</div>
+                                        <div class="last"><p class="time icon"></p>20분</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="recipe_img img"><img src="images/recipe_list_img04.jpg" alt="레시피 이미지"></p>
+                                <div class="cont_info">
+                                    <p class="tit">특별한 날 편의점 스테이크 밀키트 활용해서 코스요리 흉내내기!!</p>
+                                    <div class="more_info01">
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">5.0</p>
+                                            <p class="rview_num">(50)</p>
+                                        </div>
+                                        <p class="name">djqtdma</p>
+                                    </div>
+                                    <div class="more_info02">
+                                        <div><p class="many icon"></p>2인분</div>
+                                        <div class="last"><p class="time icon"></p>30분</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="recipe_img img"><img src="images/recipe_list_img01.jpg" alt="레시피 이미지"></p>
+                                <div class="cont_info">
+                                    <p class="tit">‘불짜파게티’ 짜파게티와 불짬뽕의 조합은 생각지도 못한 맛인데 너무 맛있어버리는 레시피</p>
+                                    <div class="more_info01">
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                        <p class="name">홍길동</p>
+                                    </div>
+                                    <div class="more_info02">
+                                        <div><p class="many icon"></p>2인분</div>
+                                        <div class="last"><p class="time icon"></p>30분</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="products_list sec_width">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <p class="products_img img"><img src="images/products_list_img01.jpg" alt="편의점 상품 이미지"></p>
+                                <div class="cont_info">
+                                    <p class="tit">삼각&#41;비빔참치마요</p>
+                                    <div class="more_info01">
+                                        <p class="name">emart24</p>
+                                        <p class="price">1,000원</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="products_img img"><img src="images/products_list_img02.jpg" alt="편의점 상품 이미지"></p>
+                                <div class="cont_info">
+                                    <p class="tit">컵라면&#41;오모리 김치 찌개 라면</p>
+                                    <div class="more_info01">
+                                        <p class="name">GS25</p>
+                                        <p class="price">1,600원</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="products_img img"><img src="images/products_list_img03.jpg" alt="편의점 상품 이미지"></p>
+                                <div class="cont_info">
+                                    <p class="tit">삼각&#41;뉴참치마요골드</p>
+                                    <div class="more_info01">
+                                        <p class="name">GS25</p>
+                                        <p class="price">1,000원</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="products_img img"><img src="images/products_list_img04.jpg" alt="편의점 상품 이미지"></p>
+                                <div class="cont_info">
+                                    <p class="tit">삼각&#41;듬뿍참치마요네즈</p>
+                                    <div class="more_info01">
+                                        <p class="name">세븐일레븐</p>
+                                        <p class="price">1,000원</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p class="products_img img"><img src="images/products_list_img05.jpg" alt="편의점 상품 이미지"></p>
+                                <div class="cont_info">
+                                    <p class="tit">삼각&#41;대파라면</p>
+                                    <div class="more_info01">
+                                        <p class="name">세븐일레븐</p>
+                                        <p class="price">1,000원</p>
+                                        <div class="review_wrap">
+                                            <p class="star icon"></p>
+                                            <p class="score">4.5</p>
+                                            <p class="rview_num">(150)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><!--content-->
+        <div class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <ul>
+                <li class="home">
+                    <a href="#main_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon home"></p>홈</a>
+                </li>
+                <li class="search">
+                    <a href="#search_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon search"></p>검색</a>
+                </li>
+                <li class="recipe">
+                    <a href="#recipe_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon recipe"></p>레시피</a>
+                </li>
+                <li class="user on">
+                    <a href="#" class="ui-btn ui-corner-all" data-role="button"><p class="icon user"></p>MY</a>
+                </li>
+            </ul>
+        </div><!--ui_fixed-->
+    </div><!--my_pick_page_wrap-->
+    <div id="search_page" class="search" data-role="page" data-url="search_page">
+        <div class="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="header_wrap">
+                <!-- <h1 id="logo"><a href=""><img src="" alt=""></a></h1> -->
+                <a href="#" class="back_btn" data-rel="back" data-direction="reverse"></a>
+                <input type="search" name="search" class="main_search" placeholder="검색어를 입력해 주세요.">
+                <div class="head_icon">
+                    <div class="basket"><a href="#"></a></div>
+                </div>
+            </div>
+        </div><!--header-->
+        <div class="conts_wrap" data-role="content">
+            <div class="sec">
+                <div class="recent_wrap sec_width">
+                    <div class="tit_wrap">
+                        <p class="tit">최근검색어</p>
+                        <a href="#" class="all_remove">전체삭제</a>
+                    </div>
+                    <ul>
+                        <li class="nope"><a href="#">최근 검색어가 없어요.</a></li>
+                        <li class="search_word"><a href="#search_info_recipe_page">라라스윗1</a><span class="remove"></span></li>
+                        <li class="search_word"><a href="#">라라스윗2</a><span class="remove"></span></li>
+                        <li class="search_word"><a href="#">라라스윗3</a><span class="remove"></span></li>
+                        <li class="search_word"><a href="#">라라스윗4</a><span class="remove"></span></li>
+                        <li class="search_word"><a href="#">라라스윗5</a><span class="remove"></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sec">
+                <div class="search_ranking_wrap sec_width">
+                    <p class="tit">지금 많이<br>검색되고 있어요!</p>
+                    <ol class="ranking_list">
+                        <li><a href="#search_info_recipe_page">라라스윗</a><span class="icon nope"></span></li>
+                        <li><a href="#">망그러진곰</a><span class="icon nope"></span></li>
+                        <li><a href="#">연세</a><span class="icon down"></span></li>
+                        <li><a href="#">김밥</a><span class="icon up"></span></li>
+                        <li><a href="#">대왕 비빔면</a><span class="icon up"></span></li>
+                        <li><a href="#">먹태깡</a><span class="icon down"></span></li>
+                        <li><a href="#">명란마요</a><span class="icon up"></span></li>
+                        <li><a href="#">저당 아이스크림</a><span class="icon up"></span></li>
+                        <li><a href="#">밀크클래식</a><span class="icon down"></span></li>
+                        <li><a href="#">맥주</a><span class="icon up"></span></li>
+                    </ol>
+                    <div class="event_bn_wrap">
+                        <div class="event_text">
+                            <p class="type">이벤트</p>
+                            <p class="tit">리얼프라이스<br>장바구니 증정 이벤트</p>
+                            <p class="sub">선착순 100% 당첨</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--content-->
+        <div class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <ul>
+                <li class="home">
+                    <a href="#main_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon home"></p>홈</a>
+                </li>
+                <li class="search on">
+                    <a href="#search_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon search"></p>검색</a>
+                </li>
+                <li class="recipe">
+                    <a href="#recipe_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon recipe"></p>레시피</a>
+                </li>
+                <li class="user">
+                    <a href="#" class="ui-btn ui-corner-all" data-role="button"><p class="icon user"></p>MY</a>
+                </li>
+            </ul>
+        </div><!--ui_fixed-->
+    </div><!--search_main_page_wrap-->
+    <div id="recipe_write_page" class="recipe_write" data-role="page" data-url="recipe_write_page">
+        <div class="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="header_wrap">
+                <!-- <h1 id="logo"><a href=""><img src="" alt=""></a></h1> -->
+                <a href="#" class="back_btn" data-rel="back" data-direction="reverse"></a>
+                <h2 class="page_tit">레시피 작성</h2>
+                <input type="submit" value="저장" class="recipe_save" form="" data-rel="back" data-direction="reverse">
+            </div>
+        </div><!--header-->
+        <div class="conts_wrap" data-role="content">
+            <form action="#my_page" id="recipe_write_form" class="write_box" method="get" data-ajax="false">
+                <div class="write_input">
+                    <div class="tit_bg"><p class="write_tit">레시피 제목</p></div>
+                    <input type="text" placeholder="예) 소고기 미역 라면" class="tit">
+                </div>
+                <div class="recipe_photo_wrap write_input">
+                    <input type="file" name="photo" id="photo" class="input_file" onchange="loadFile(this, 1)">
+                    <label for="photo" class="photo_icon">
+                        <p class="icon"></p>
+                        <span>요리 대표 사진을 등록해 주세요.</span>
+                        <span class="tip">음식 사진 외 사람/동물 등의 사진은 삼가해주세요.</span>
+                    </label>
+                </div>
+                <div class="write_input">
+                    <div class="tit_bg"><p class="write_tit">요리소개</p></div>
+                    <textarea name="introduce" class="introduce" placeholder="이 레시피의 탄생배경을 적어주세요."></textarea>
+                </div>
+                <div class="write_input">
+                    <div class="tit_bg"><p class="write_tit">카테고리</p></div>
+                    <div class="sub_tit category_select select_box_btn"><p class="default">::종류별::</p><p class="icon"></p></div>
+                    <div class="category_box select_box">
+                        <ul>
+                            <li class="text">종류</li>
+                            <li>
+                                <input type="radio" name="option" id="option01" value="도시락/김밥">
+                                <label for="option01">도시락/김밥</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="option" id="option02" value="햄버거/샌드위치">
+                                <label for="option02">햄버거/샌드위치</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="option" id="option03" value="라면/면">
+                                <label for="option03">라면/면</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="option" id="option04" value="치킨">
+                                <label for="option04">치킨</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="option" id="option05" value="디저트/빵/과자">
+                                <label for="option05">디저트/빵/과자</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="option" id="option06" value="음료수/차/유제품">
+                                <label for="option06">음료수/차/유제품</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="option" id="option07" value="술/술안주">
+                                <label for="option07">술/술안주</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="option" id="option08" value="즉석식품">
+                                <label for="option08">즉석식품</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="option" id="option09" value="기타">
+                                <label for="option09">기타</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <select name="category" class="">
+                        <option ></option>
+                        <option value="도시락/김밥">도시락/김밥</option>
+                        <option value="햄버거/샌드위치">햄버거/샌드위치</option>
+                        <option value="라면/면">라면/면</option>
+                        <option value="치킨">치킨</option>
+                        <option value="디저트/빵/과자">디저트/빵/과자</option>
+                        <option value="음료수/차/유제품">음료수/차/유제품</option>
+                        <option value="술/술안주">술/술안주</option>
+                        <option value="즉석식품">즉석식품</option>
+                        <option value="기타">기타</option>
+                    </select> -->
+                </div>
+                <div class="write_input">
+                    <div class="tit_bg"><p class="write_tit">요리정보</p></div>
+                    <div class="select_line">
+                        <div class="sub_tit select_box_btn"><p class="default">인원</p>
+                        <p class="icon"></p></div>
+                        <div class="recipe_num_box select_box">
+                            <ul>
+                                <li class="text">인원</li>
+                                <li>
+                                    <input type="radio" name="recipe_num" id="recipe_num01" value="1인분">
+                                    <label for="recipe_num01">1인분</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="recipe_num" id="recipe_num02" value="2인분">
+                                    <label for="recipe_num02">2인분</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="recipe_num" id="recipe_num03" value="3인분">
+                                    <label for="recipe_num03">3인분</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="recipe_num" id="recipe_num04" value="4인분">
+                                    <label for="recipe_num04">4인분</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="recipe_num" id="recipe_num05" value="5인분이상">
+                                    <label for="recipe_num05">5인분이상</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="select_line">
+                        <div class="sub_tit select_box_btn"><p class="default">요리시간</p>
+                            <p class="icon"></p></div>
+                        <div class="recipe_time_box select_box">
+                            <ul>
+                                <li class="text">요리시간</li>
+                                <li>
+                                    <input type="radio" name="recipe_time" id="recipe_time01" value="5분이내">
+                                    <label for="recipe_time01">5분이내</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="recipe_time" id="recipe_time02" value="10분이내">
+                                    <label for="recipe_time02">10분이내</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="recipe_time" id="recipe_time03" value="15분이내">
+                                    <label for="recipe_time03">15분이내</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="recipe_time" id="recipe_time04" value="30분이내">
+                                    <label for="recipe_time04">30분이내</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="recipe_time" id="recipe_time05" value="1시간이내">
+                                    <label for="recipe_time05">1시간이내</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="recipe_time" id="recipe_time06" value="2시간이내">
+                                    <label for="recipe_time06">2시간이내</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="recipe_time" id="recipe_time07" value="2시간이상">
+                                    <label for="recipe_time07">2시간이상</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="write_input">
+                    <div class="tit_bg"><p class="write_tit">재료</p></div>
+                    <div class="list_wrap stuff_list_wrap">
+                        <div class="line stuff_line">
+                            <div class="input_wrap">
+                                <input type="text" placeholder="예) 소고기" class="stuff">
+                                <input type="text" placeholder="예) 300g" class="stuff_info">
+                            </div>
+                        </div>
+                        <div class="line">
+                            <div class="input_wrap">
+                                <input type="text" placeholder="예) 양파" class="stuff">
+                                <input type="text" placeholder="예) 1/2개" class="stuff_info">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stuff_plus plus_btn">
+                        <p class="icon"></p>
+                        <p class="text">재료추가</p>
+                    </div>
+                </div>
+                <div class="write_input">
+                    <div class="tit_bg"><p class="write_tit">양념</p></div>
+                    <div class="list_wrap spices_list_wrap">
+                        <div class="line">
+                            <div class="input_wrap">
+                                <input type="text" placeholder="예) 간장" class="spices">
+                                <input type="text" placeholder="예) 1.5T" class="spices_info">
+                            </div>
+                        </div>
+                        <div class="line">
+                            <div class="input_wrap">
+                                <input type="text" placeholder="예) 맛술" class="spices">
+                                <input type="text" placeholder="예) 2T" class="spices_info">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spices_plus plus_btn">
+                        <p class="icon"></p>
+                        <p class="text">양념추가</p>
+                    </div>
+                </div>
+                <div class="write_input">
+                    <div class="tit_bg"><p class="write_tit">요리순서</p></div>
+                    <div class="list_wrap recipe_list_wrap">
+                        <div class="line">
+                            <div class="list_li">
+                                <div class="list_text">
+                                    <p class="list_num">1</p>
+                                    <textarea name="recipe_list01" class="recipe_list" placeholder="예) 소고기는 기름기를 떼어내고 적당한 크기로 잘라주세요."></textarea>
+                                </div>
+                                <div class="photo_plus_box">
+									<label for="recipe_img01"><img src="images/insert_img.svg" alt="" id="fileimg7"/></label>
+									<input type="file" id="recipe_img01" name="recipe_img01" accept="image/*" onchange="loadFile(this,7)" class="input_file">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <div class="list_li">
+                                <div class="list_text">
+                                    <p class="list_num">2</p>
+                                    <textarea name="recipe_list02" class="recipe_list" placeholder="예) 준비된 양념으로 먼저 고기를 재워 둡니다."></textarea>
+                                </div>
+                                <div class="photo_plus_box">
+                                    <label for="recipe_img02"><img src="images/insert_img.svg" alt="" id="fileimg8"/></label>
+									<input type="file" id="recipe_img02" name="recipe_img02" accept="image/*" onchange="loadFile(this,8)" class="input_file">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list_plus plus_btn">
+                        <p class="icon"></p>
+                        <p class="text">요리순서추가</p>
+                    </div>
+                </div>
+                <div class="write_input">
+                    <div class="tit_bg"><p class="write_tit">완성사진</p></div>
+                    <div class="swiper complete_photo_list_wrap">
+                        <ul class="cf complete_photo_list swiper-wrapper">
+                            <li class="fl photo_plus_box swiper-slide">
+								<label for="complete_photo01"><img src="images/insert_img.svg" alt="" id="fileimg2"/></label>
+								<input type="file" id="complete_photo01" name="complete_photo01" accept="image/*" onchange="loadFile(this,2)">
+                            </li>
+                            <li class="fl photo_plus_box swiper-slide">
+                                <label for="complete_photo02"><img src="images/insert_img.svg" alt="" id="fileimg3"/></label>
+								<input type="file" id="complete_photo02" name="complete_photo02" accept="image/*" onchange="loadFile(this,3)">
+                            </li>
+                            <li class="fl photo_plus_box swiper-slide">
+                                <label for="complete_photo03"><img src="images/insert_img.svg" alt="" id="fileimg4"/></label>
+								<input type="file" id="complete_photo03" name="complete_photo03" accept="image/*" onchange="loadFile(this,4)">
+                            </li>
+                            <li class="fl photo_plus_box swiper-slide">
+                                <label for="complete_photo04"><img src="images/insert_img.svg" alt="" id="fileimg5"/></label>
+								<input type="file" id="complete_photo04" name="complete_photo04" accept="image/*" onchange="loadFile(this,5)">
+                            </li>
+                            <li class="fl photo_plus_box swiper-slide">
+                                <label for="complete_photo05"><img src="images/insert_img.svg" alt="" id="fileimg6"/></label>
+								<input type="file" id="complete_photo05" name="complete_photo05" accept="image/*" onchange="loadFile(this,6)">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="write_input">
+                    <div class="tit_bg"><p class="write_tit">팁/주의사항</p></div>
+                    <textarea name="" id="" placeholder="예) 고기요리에는 소금보다 설탕을 먼저 넣어야 닷맛이 겉돌지 않고 육질이 부드러워요."></textarea>
+                </div>
+                <div class="write_input">
+                    <div class="tit_bg"><p class="write_tit">태그</p></div>
+                    <input type="text" placeholder="예) 고기, 미역, 라면">
+                </div>
+            </form>
+            <script>
+                function loadFile(input,i) {
+                    var file = input.files[0];
+                    var text = 'fileimg'+i;
+                    
+                    var img = document.getElementById(text);
+                    img.src = URL.createObjectURL(file);
+                };
+            </script>
+        </div>
+    </div><!--recipe_write_page_wrap-->
+    <div id="recipe_page" class="recipe_menu" data-role="page" data-url="recipe_page">
+        <div class="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="header_wrap">
+                <!-- <h1 id="logo"><a href=""><img src="" alt=""></a></h1> -->
+                <a href="#" class="back_btn" data-rel="back" data-direction="reverse"></a>
+                <h2 class="page_tit">레시피 종류</h2>
+                <div class="head_icon">
+                    <div class="basket"><a href="#"></a></div>
+                </div>
+            </div>
+        </div><!--header-->
+        <div class="conts_wrap" data-role="content">
+            <div class="sec sec_width">
+                <ul class="recipe_menu_list">
+                    <li>
+                        <a href="#recipe2_1">
+                            <p class="icon icon01"></p>
+                            <p class="tit">도시락/김밥</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p class="icon icon02"></p>
+                            <p class="tit">햄버거/샌드위치</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p class="icon icon03"></p>
+                            <p class="tit">라면/면</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p class="icon icon04"></p>
+                            <p class="tit">치킨</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p class="icon icon05"></p>
+                            <p class="tit">디저트/빵/과자</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p class="icon icon06"></p>
+                            <p class="tit">음료수/차/유제품</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p class="icon icon07"></p>
+                            <p class="tit">술/술안주</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p class="icon icon08"></p>
+                            <p class="tit">즉석식품</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p class="icon icon09"></p>
+                            <p class="tit">냉장간편식품</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div><!--content-->
+        <div class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <ul>
+                <li class="home">
+                    <a href="#main_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon home"></p>홈</a>
+                </li>
+                <li class="search">
+                    <a href="#search_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon search"></p>검색</a>
+                </li>
+                <li class="recipe on">
+                    <a href="#recipe_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon recipe"></p>레시피</a>
+                </li>
+                <li class="user">
+                    <a href="#" class="ui-btn ui-corner-all" data-role="button"><p class="icon user"></p>MY</a>
+                </li>
+            </ul>
+        </div><!--ui_fixed-->
+    </div><!--recipe_main_page_wrap-->
+    <div data-role="page" id="recipe2_1" class="recipe2" data-url="recipe2_1">
+        <div class="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="header_wrap">
+                <a href="#" class="back_btn" data-rel="back" data-direction="reverse"></a>
+                <h2 class="page_tit">디저트/샐러드</h2>
+                <div class="head_icon">
+                    <div class="basket"><a href="#"></a></div>
+                </div>
+            </div>
+        </div><!--header-->
+        <div class="conts_wrap" data-role="content">
+			<a href="#recipe2_2"><input type="search" name="search" id="recipe2_1_search" placeholder="검색어를 입력해 주세요."></a>
+            <div class="swiper recipe_tab">
+                <ul class="cf swiper-wrapper">
+                    <li class="fl swiper-slide on"><a href="#">별점순</a></li>
+                    <li class="fl swiper-slide"><a href="#">조회순</a></li>
+                    <li class="fl swiper-slide"><a href="#">최신순</a></li>
+                    <li class="fl swiper-slide"><a href="#">가격 높은순</a></li>
+                    <li class="fl swiper-slide"><a href="#">가격 낮은순</a></li>
+                </ul>
+            </div>
+			<div class="recipe_tabmenu">
+			    <ul class="food_cont sec sec_width">
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg1.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">연두부 티라미수</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">5.0</p>
+    								<p class="rview_num">(311)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg2.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">말랑초코 스모어</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.9</p>
+    								<p class="rview_num">(350)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg3.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">몽블랑</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.9</p>
+    								<p class="rview_num">(321)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg4.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">부쉬드노엘</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.8</p>
+    								<p class="rview_num">(380)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg5.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">앙버터브레드</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.8</p>
+    								<p class="rview_num">(300)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg6.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">초코견과 죠리퐁</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.7</p>
+    								<p class="rview_num">(250)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    			</ul>
+                <ul class="food_cont sec sec_width">
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg5.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">연두부 티라미수</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">5.0</p>
+    								<p class="rview_num">(311)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg2.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">말랑초코 스모어</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.9</p>
+    								<p class="rview_num">(350)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg3.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">몽블랑</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.9</p>
+    								<p class="rview_num">(321)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg4.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">부쉬드노엘</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.8</p>
+    								<p class="rview_num">(380)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg5.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">앙버터브레드</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.8</p>
+    								<p class="rview_num">(300)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg6.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">초코견과 죠리퐁</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.7</p>
+    								<p class="rview_num">(250)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    			</ul>
+                <ul class="food_cont sec sec_width">
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg1.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">연두부 티라미수</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">5.0</p>
+    								<p class="rview_num">(311)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg2.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">말랑초코 스모어</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.9</p>
+    								<p class="rview_num">(350)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg3.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">몽블랑</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.9</p>
+    								<p class="rview_num">(321)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg4.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">부쉬드노엘</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.8</p>
+    								<p class="rview_num">(380)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg5.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">앙버터브레드</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.8</p>
+    								<p class="rview_num">(300)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg6.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">초코견과 죠리퐁</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.7</p>
+    								<p class="rview_num">(250)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    			</ul>
+                <ul class="food_cont sec sec_width">
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg1.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">연두부 티라미수</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">5.0</p>
+    								<p class="rview_num">(311)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg2.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">말랑초코 스모어</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.9</p>
+    								<p class="rview_num">(350)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg3.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">몽블랑</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.9</p>
+    								<p class="rview_num">(321)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg4.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">부쉬드노엘</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.8</p>
+    								<p class="rview_num">(380)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg5.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">앙버터브레드</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.8</p>
+    								<p class="rview_num">(300)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg6.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">초코견과 죠리퐁</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.7</p>
+    								<p class="rview_num">(250)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    			</ul>
+                <ul class="food_cont sec sec_width">
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg1.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">연두부 티라미수</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">5.0</p>
+    								<p class="rview_num">(311)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg2.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">말랑초코 스모어</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.9</p>
+    								<p class="rview_num">(350)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg3.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">몽블랑</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.9</p>
+    								<p class="rview_num">(321)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg4.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">부쉬드노엘</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.8</p>
+    								<p class="rview_num">(380)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg5.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">앙버터브레드</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.8</p>
+    								<p class="rview_num">(300)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    				<li class="food_img">
+    					<a href="#recipe_3">
+    						<p class="recipe_img img">
+    							<img src="images/foodimg6.png" alt="레시피 이미지"/>
+    						</p>
+    						<div class="cont_info">
+    							<p class="tit">초코견과 죠리퐁</p>
+    							<div class="review_wrap">
+    								<p class="star icon"></p>
+    								<p class="score">4.7</p>
+    								<p class="rview_num">(250)</p>
+    							</div>
+    						</div>
+    					</a>
+    				</li>
+    			</ul>
+			</div>
+        </div>
+        <div class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <ul>
+                <li class="home">
+                    <a href="#main_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon home"></p>홈</a>
+                </li>
+                <li class="search">
+                    <a href="#search_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon search"></p>검색</a>
+                </li>
+                <li class="recipe on">
+                    <a href="#recipe_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon recipe"></p>레시피</a>
+                </li>
+                <li class="user">
+                    <a href="#" class="ui-btn ui-corner-all" data-role="button"><p class="icon user"></p>MY</a>
+                </li>
+            </ul>
+        </div><!--ui_fixed-->
+    </div><!--recipe2_1_page_wrap-->
+	<div data-role="page" id="recipe2_2" class="recipe2" data-url="recipe2_2">
+        <div class="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="header_wrap">
+                <a href="#" class="back_btn" data-rel="back" data-direction="reverse"></a>
+                <h2 class="page_tit">디저트/샐러드</h2>
+                <div class="head_icon">
+                    <div class="basket"><a href="#"></a></div>
+                </div>
+            </div>
+        </div><!--header-->
+        <div class="conts_wrap" data-role="content">
+			<input type="search" value="티라미수"/>
+			<div class="swiper recipe_tab">
+				<ul class="cf swiper-wrapper">
+					<li class="fl swiper-slide on"><a href="#">별점순</a></li>
+					<li class="fl swiper-slide"><a href="#">조회순</a></li>
+					<li class="fl swiper-slide"><a href="#">최신순</a></li>
+					<li class="fl swiper-slide"><a href="#">가격 높은순</a></li>
+					<li class="fl swiper-slide"><a href="#">가격 낮은순</a></li>
+				</ul>
+			</div>
+			<div class="recipe_tabmenu">
+				<ul class="food_cont sec sec_width">
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg2.png" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">연두부 티라미수</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg7.png" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">생크림파이 티라미수</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg8.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 라떼</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg9.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 마카롱</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg10.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">바나나 티라미수 케익</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg11.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 컵케익</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="food_cont sec sec_width">
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg1.png" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">연두부 티라미수</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg7.png" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">생크림파이 티라미수</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg8.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 라떼</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg9.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 마카롱</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg10.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">바나나 티라미수 케익</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg11.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 컵케익</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="food_cont sec sec_width">
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg1.png" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">연두부 티라미수</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg7.png" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">생크림파이 티라미수</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg8.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 라떼</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg9.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 마카롱</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg10.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">바나나 티라미수 케익</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg11.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 컵케익</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="food_cont sec sec_width">
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg1.png" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">연두부 티라미수</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg7.png" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">생크림파이 티라미수</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg8.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 라떼</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg9.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 마카롱</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg10.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">바나나 티라미수 케익</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg11.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 컵케익</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<ul class="food_cont sec sec_width">
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg1.png" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">연두부 티라미수</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg7.png" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">생크림파이 티라미수</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg8.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 라떼</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg9.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 마카롱</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg10.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">바나나 티라미수 케익</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="food_img">
+						<a href="#recipe_3">
+							<p class="recipe_img img">
+								<img src="images/foodimg11.jpg" alt="레시피 이미지"/>
+							</p>
+							<div class="cont_info">
+								<p class="tit">티라미수 컵케익</p>
+								<div class="review_wrap">
+									<p class="star icon"></p>
+									<p class="score">5.0</p>
+									<p class="rview_num">(311)</p>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+        </div>
+        <div class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <ul>
+                <li class="home">
+                    <a href="#main_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon home"></p>홈</a>
+                </li>
+                <li class="search">
+                    <a href="#search_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon search"></p>검색</a>
+                </li>
+                <li class="recipe on">
+                    <a href="#recipe_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon recipe"></p>레시피</a>
+                </li>
+                <li class="user">
+                    <a href="#" class="ui-btn ui-corner-all" data-role="button"><p class="icon user"></p>MY</a>
+                </li>
+            </ul>
+        </div><!--ui_fixed-->
+    </div><!--recipe2_2_page_wrap-->
+	<div data-role="page" id="recipe_3" class="recipe_3" data-url="recipe_3">
+        <div class="header" data-role="header" data-position="fixed" data-tap-toggle="false" style="z-index:1000;">
+            <div class="header_wrap">
+                <a href="#" class="back_btn" data-rel="back" data-direction="reverse"></a>
+                <h2 class="page_tit">레시피</h2>
+                <div class="head_icon">
+                    <div class="basket"><a href="#"></a></div>
+                </div>
+            </div>
+        </div><!--header-->
+        <div data-role="content">
+			<div class="cook_recipe_header swiper">
+				<ul class="swiper-wrapper">
+					<li class="swiper-slide"><img src="images/recipe_show_img1.png"/></li>
+					<li class="swiper-slide"><img src="images/recipe_show_img2.png"/></li>
+					<li class="swiper-slide">
+						<img src="images/recipe_show_img3.png"/>
+						<a href="https://www.youtube.com/watch?v=Ihmn9jfrKrI&t=1s" target="_blank">
+							<div class="video_playbutton_wrap">
+								<div class="video_playbutton">
+									<svg viewBox="0 0 384 512" fill="#ffffff" width="20" height="20"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<div class="cook_recipe_header_icons sec_width">
+				    <div class="recipe_bookmark"></div>
+    				<div class="recipe_share"></div>
+    				<div class="recipe_more"></div>
+				</div>
+			</div>
+			<div class="make_recipe_wrap_background">
+				<div class="sec sec_width">
+					<div class="make_recipe_wrap">
+						<div class="make_recipe_user_wrap">
+							<div class="make_recipe_user">
+								<img src="images/user.jpg" alt=""/>
+							</div>
+							<div class="make_recipe_user_name">홍길동</div>
+						</div>
+						<div class="make_recipe_user_follow">
+							<span class="make_recipe_user_followers">1560</span>
+							<span class="make_recipe_user_Following">5</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sec sec_width">
+				<div class="cook_recipe_text">
+					<p class="recipe_main_title">연두부 티라미수</p>
+					<div class="time"><p class="icon"></p> <span>10분</span></div>
+				</div>
+				<div class="ingredient_text">
+					<div class="ingredient">      
+						<p class="sub_tit">재료</p> 
+						<h3>
+							<span class="ingredient_name">카스텔라</span><span class="ingredient_number">1개</span>
+						</h3>
+						<h3>
+							<span class="ingredient_name">연두부</span><span class="ingredient_number">4모</span>
+						</h3>
+						<h3>
+							<span class="ingredient_name">크림치즈</span><span class="ingredient_number">300g</span>
+						</h3>
+						<h3>
+							<span class="ingredient_name">초콜릿</span><span class="ingredient_number">2개</span>
+						</h3>
+						<h3>
+							<span class="ingredient_name">뜨거운 물</span><span class="ingredient_number">1/2종이컵</span>
+						</h3>
+					</div>
+					<div class="ingredient">
+						<h2 class="sub_tit">양념</h2>
+						<h3>
+							<span class="ingredient_name">설탕</span><span class="ingredient_number">2숟가락</span>
+						</h3>
+						<h3>
+							<span class="ingredient_name">인스턴트커피가루</span><span class="ingredient_number">3봉</span>
+						</h3>
+					</div>
+				</div>
+			</div>
+			<div class="sec sec_width cooking_method">
+				<p class="sub_tit">레시피</p>
+				<div class="cooking_method_text">
+					<ol>
+						<li>
+							<div>
+								<div class="method">카스텔라는 슬라이스하여 자른다.</div>
+								<img src="images/cooking_method_img1.jpg"/>
+							</div>
+						</li>
+						<li>
+							<div>
+								<div class="method">초콜릿은 강판에 갈거나 칼로 긁어낸다.</div>
+								<img src="images/cooking_method_img2.jpg"/>
+							</div>
+						</li>
+						<li>
+							<div>
+								<div class="method">연두부를 곱게 으깬 후 크림치즈, 설탕을 넣고 섞어 연두부 크림을 만든다.</div>
+								<img src="images/cooking_method_img3.jpg"/>
+							</div>
+						</li>
+						<li>
+							<div>
+								<div class="method">인스턴트커피가루에 뜨거운 물을 넣고 섞어 커피 원액을 만든다.</div>
+								<img src="images/cooking_method_img4.jpg"/>
+							</div>
+						</li>
+						<li>
+							<div>
+								<div class="method">용기에 자른 카스텔라를 넣고 커피 원액 > 연두부 크림 순으로 반복하여 쌓는다.</div>
+								<img src="images/cooking_method_img5.jpg"/>
+							</div>
+						</li>
+						<li>
+							<div>
+								<div class="method">갈아 둔 초콜릿을 가득 뿌려 완성한다.</div>
+								<img src="images/cooking_method_img6.jpg"/>
+							</div>
+						</li>
+					</ol>
+				</div>
+			</div>
+            <div class="review_button_wrap">
+                <div class="cook_review sec_width">
+                    <div class="review_star">
+                        <p class="icon"></p>
+                        <p class="review_num">&nbsp;5.0</p>
+                    </div>
+                    <button id="review_button">레시피 후기 남기기</button>
+                </div>
+            </div>
+			<div class="sec">
+				<h2 class="sub_tit sec_width">포토 후기</h2>
+                <div class="recipe_review_img_list swiper">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide"><img src="images/foodimg1.png"/></li>
+                        <li class="swiper-slide"><img src="images/foodimg2.png"/></li>
+                        <li class="swiper-slide"><img src="images/foodimg3.png"/></li>
+                        <li class="swiper-slide"><img src="images/foodimg4.png"/></li>
+                        <li class="swiper-slide"><img src="images/foodimg5.png"/></li>
+                        <li class="swiper-slide"><img src="images/foodimg6.png"/></li>
+                    </ul>
+                </div>
+				<div class="user_review_list cf sec_width">
+				    <div class="user_review_wrap">
+    					<div class="user_review">
+    					    <div class="user_profile">
+        						<img src="images/user.jpg" alt=""/>
+        					</div>
+        					<div class="user_comment">
+        						<div class="user_name">
+        							<h2>행복맘</h2>
+        							<div class="icon star"></div>
+        							<div class="icon star"></div>
+        							<div class="icon star"></div>
+        							<div class="icon star"></div>
+        							<div class="icon star"></div>
+        						</div>
+        						<div class="comment">티라미수를 무척 좋아하는데 오늘 해봐야겠네요</div>
+        						<div class="user_comment_time">
+        							<p>3일전</p>
+        							<div><p class="icon good"></p>11</div>
+        							<div><p class="icon comm"></p>2</div>
+        						</div>
+        					</div>
+    					</div>
+    					<div class="user_cookimg">
+    						<img src="images/foodimg10.jpg" alt="" />
+    					</div>
+    				</div>
+    				<div class="user_review_wrap">
+    					<div class="user_review">
+    					    <div class="user_profile">
+        						<img src="images/user.jpg" alt=""/>
+        					</div>
+        					<div class="user_comment">
+        						<div class="user_name">
+        							<h2>최은영</h2>
+        							<div class="icon star"></div>
+        							<div class="icon star"></div>
+        							<div class="icon star"></div>
+        							<div class="icon star"></div>
+        							<div class="icon star"></div>
+        						</div>
+        						<div class="comment">넘맛있을것같아요..자꾸해달라함어쩌지요~??ㅋㅋ</div>
+        						<div class="user_comment_time">
+        							<p>3일전</p>
+        							<div><p class="icon good"></p>11</div>
+        							<div><p class="icon comm"></p>2</div>
+        						</div>
+        					</div>
+    					</div>
+    					<div class="user_cookimg">
+    						<img src="images/foodimg11.jpg" alt="" />
+    					</div>
+    				</div>
+    				<div class="user_review_wrap">
+    					<div class="user_review">
+    					    <div class="user_profile">
+        						<img src="images/user.jpg" alt=""/>
+        					</div>
+        					<div class="user_comment">
+        						<div class="user_name">
+        							<h2>하얀곰돌a</h2>
+        							<div class="icon star"></div>
+        							<div class="icon star"></div>
+        							<div class="icon star"></div>
+        							<div class="icon star"></div>
+        							<div class="icon star"></div>
+        						</div>
+        						<div class="comment">간단하고 예뻐요! 진짜 굿아이디어네요~ 누텔라바르니 맛도 더 좋네요~~ </div>
+        						<div class="user_comment_time">
+        							<p>3일전</p>
+        							<div><p class="icon good"></p>11</div>
+        							<div><p class="icon comm"></p>2</div>
+        						</div>
+        					</div>
+    					</div>
+    					<div class="user_cookimg">
+    						<img src="images/foodimg4.png" alt="" />
+    					</div>
+    				</div>
+				</div>
+				<form action="#" id="cook_review" class="cook_review_wrap">
+					<div class="cook_review_body">
+						<div class="cook_review_header">
+							<div class="cook_review_close">
+								<span></span>
+								<span></span>
+							</div>
+							<div class="cook_review_center">
+								<h2>요리후기</h2>
+								<div class="cook_review_star">
+                                    <label for="star_wrap01" class="star_wrap">
+                                        <input type="checkbox" id="star_wrap01">
+                                        <p class="icon star"></p>
+                                    </label>
+                                    <label for="star_wrap02" class="star_wrap">
+                                        <input type="checkbox" id="star_wrap02">
+                                        <p class="icon star"></p>
+                                    </label>
+                                    <label for="star_wrap03" class="star_wrap">
+                                        <input type="checkbox" id="star_wrap03">
+                                        <p class="icon star"></p>
+                                    </label>
+                                    <label for="star_wrap04" class="star_wrap">
+                                        <input type="checkbox" id="star_wrap04">
+                                        <p class="icon star"></p>
+                                    </label>
+                                    <label for="star_wrap05" class="star_wrap">
+                                        <input type="checkbox" id="star_wrap05">
+                                        <p class="icon star"></p>
+                                    </label>
+                                    
+								</div>
+								<div class="tip">
+									<p class="icon notice"></p>
+									<span>요리 팁, 무엇을 적을지 고민이라면!</span>
+								</div>
+								<div class="tip_box_wrap">
+								    <p class="tip_box">재료응용</p>
+    								<p class="tip_box">불 쎄기</p>
+    								<p class="tip_box">익힘 정도</p>
+    								<p class="tip_box">인분 조절</p>
+								</div>
+							</div>
+							<input type="submit" value="저장" class="cook_review_save" form="">
+						</div>
+						<textarea name="userMessage" id="userMessage" cols="30" rows="10"></textarea>
+						<div class="review_plus">
+                            <label for="cook_review_plusimg"><img src="images/insert_img.svg" alt="" id="fileimg0"/></label>
+							<input type="file" name="cook_review_plusimg" id="cook_review_plusimg" onchange="loadFile(this, 0)">
+						</div>
+					</div>
+				</form>
+			</div>
+        </div>
+        <div class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <ul>
+                <li class="home">
+                    <a href="#main_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon home"></p>홈</a>
+                </li>
+                <li class="search">
+                    <a href="#search_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon search"></p>검색</a>
+                </li>
+                <li class="recipe on">
+                    <a href="#recipe_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon recipe"></p>레시피</a>
+                </li>
+                <li class="user">
+                    <a href="#" class="ui-btn ui-corner-all" data-role="button"><p class="icon user"></p>MY</a>
+                </li>
+            </ul>
+        </div><!--ui_fixed-->
+    </div><!--recipe_3_page_wrap-->
+    <div data-role="page" class="search_result" id="search_info_recipe_page">
+        <div class="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="header_wrap">
+                <!-- <h1 id="logo"><a href=""><img src="" alt=""></a></h1> -->
+                <a href="#" class="back_btn" data-rel="back" data-direction="reverse"></a>
+                <input type="search" name="search" class="main_search" placeholder="검색어를 입력해 주세요.">
+                <div class="head_icon">
+                    <div class="basket"><a href="#"></a></div>
+                </div>
+            </div>
+        </div><!--header-->
+        <div class="conts_wrap section" data-role="content">
+            <div class="search_result_text">
+                <div class="head_text sec_width">
+                    <p>총 {{search_num}}개의 레시피를 찾았습니다.</p>
+                    <a href="#" class="more">더보기</a>
+                </div>
+            </div>
+            <div class="sec">
+                <ul class="tab_menu sec_width">
+                    <li class="on"><a href="#">레시피</a></li>
+                    <li class="line"><a href="#">편의점 상품</a></li>
+                </ul>
+            </div>
+            <div class="food_cont_list">
+                <ul class="food_cont sec_width">
+                    <li class="food_img">
+                        <a href="#recipe_3">
+                            <p class="recipe_img img">
+                                <img src="images/foodimg1.png" alt="레시피 이미지"/>
+                            </p>
+                            <div class="cont_info">
+                                <p class="tit">연두부 티라미수</p>
+                                <div class="review_wrap">
+                                    <p class="star icon"></p>
+                                    <p class="score">5.0</p>
+                                    <p class="rview_num">(311)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="food_img">
+                        <a href="#recipe_3">
+                            <p class="recipe_img img">
+                                <img src="images/foodimg7.png" alt="레시피 이미지"/>
+                            </p>
+                            <div class="cont_info">
+                                <p class="tit">생크림파이 티라미수</p>
+                                <div class="review_wrap">
+                                    <p class="star icon"></p>
+                                    <p class="score">5.0</p>
+                                    <p class="rview_num">(311)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="food_img">
+                        <a href="#recipe_3">
+                            <p class="recipe_img img">
+                                <img src="images/foodimg8.jpg" alt="레시피 이미지"/>
+                            </p>
+                            <div class="cont_info">
+                                <p class="tit">티라미수 라떼</p>
+                                <div class="review_wrap">
+                                    <p class="star icon"></p>
+                                    <p class="score">5.0</p>
+                                    <p class="rview_num">(311)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="food_img">
+                        <a href="#recipe_3">
+                            <p class="recipe_img img">
+                                <img src="images/foodimg9.jpg" alt="레시피 이미지"/>
+                            </p>
+                            <div class="cont_info">
+                                <p class="tit">티라미수 마카롱</p>
+                                <div class="review_wrap">
+                                    <p class="star icon"></p>
+                                    <p class="score">5.0</p>
+                                    <p class="rview_num">(311)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="food_img">
+                        <a href="#recipe_3">
+                            <p class="recipe_img img">
+                                <img src="images/foodimg10.jpg" alt="레시피 이미지"/>
+                            </p>
+                            <div class="cont_info">
+                                <p class="tit">바나나 티라미수 케익</p>
+                                <div class="review_wrap">
+                                    <p class="star icon"></p>
+                                    <p class="score">5.0</p>
+                                    <p class="rview_num">(311)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="food_img">
+                        <a href="#recipe_3">
+                            <p class="recipe_img img">
+                                <img src="images/foodimg11.jpg" alt="레시피 이미지"/>
+                            </p>
+                            <div class="cont_info">
+                                <p class="tit">티라미수 컵케익</p>
+                                <div class="review_wrap">
+                                    <p class="star icon"></p>
+                                    <p class="score">5.0</p>
+                                    <p class="rview_num">(311)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="food_cont sec_width">
+                    <li class="food_img">
+                        <a href="#search_map_page">
+                            <p class="img">
+                                <img src="images/new_tuna.png" alt=""/>
+                            </p>
+                            <div class="cont_info">
+                                <p class="tit">삼각)뉴참치마요골드</p>
+                                <p class="name">GS25편의점</p>
+                                <div class="review_wrap">
+                                    <p class="star icon"></p>
+                                    <p class="score">5.0</p>
+                                    <p class="rview_num">(311)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="food_img">
+                        <a href="#">
+                            <p class="img">
+                                <img src="images/crispy_tuna.png" alt=""/>
+                            </p>
+                            <div class="cont_info">
+                                <p class="tit">삼각)겉바속촉 참치마요</p>
+                                <p class="name">CU편의점</p>
+                                <div class="review_wrap">
+                                    <p class="star icon"></p>
+                                    <p class="score">5.0</p>
+                                    <p class="rview_num">(311)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="food_img">
+                        <a href="#">
+                            <p class="img">
+                                <img src="images/bibim_tuna.png" alt=""/>
+                            </p>
+                            <div class="cont_info">
+                                <p class="tit">삼각)비빔참치마요</p>
+                                <p class="name">GS25편의점</p>
+                                <div class="review_wrap">
+                                    <p class="star icon"></p>
+                                    <p class="score">5.0</p>
+                                    <p class="rview_num">(311)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="food_img">
+                        <a href="#">
+                            <p class="img">
+                                <img src="images/full_tuna.png" alt=""/>
+                            </p>
+                            <div class="cont_info">
+                                <p class="tit">삼각)듬뿍참치마요네즈</p>
+                                <p class="name">세븐일레븐편의점</p>
+                                <div class="review_wrap">
+                                    <p class="star icon"></p>
+                                    <p class="score">5.0</p>
+                                    <p class="rview_num">(311)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="food_img">
+                        <a href="#">
+                            <p class="img">
+                                <img src="images/depa_ramen.png" alt=""/>
+                            </p>
+                            <div class="cont_info">
+                                <p class="tit">컵라면)대파 라면</p>
+                                <p class="name">emart24편의점</p>
+                                <div class="review_wrap">
+                                    <p class="star icon"></p>
+                                    <p class="score">5.0</p>
+                                    <p class="rview_num">(311)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="food_img">
+                        <a href="#">
+                            <p class="img">
+                                <img src="images/kimchizzige.png" alt=""/>
+                            </p>
+                            <div class="cont_info">
+                                <p class="tit">컵라면)오모리 김치찌개 라면</p>
+                                <p class="name">세븐일레븐편의점</p>
+                                <div class="review_wrap">
+                                    <p class="star icon"></p>
+                                    <p class="score">5.0</p>
+                                    <p class="rview_num">(311)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+		</div>
+		<div class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <ul>
+                <li class="home">
+                    <a href="#main_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon home"></p>홈</a>
+                </li>
+                <li class="search on">
+                    <a href="#search_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon search"></p>검색</a>
+                </li>
+                <li class="recipe">
+                    <a href="#recipe_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon recipe"></p>레시피</a>
+                </li>
+                <li class="user">
+                    <a href="#" class="ui-btn ui-corner-all" data-role="button"><p class="icon user"></p>MY</a>
+                </li>
+            </ul>
+        </div><!--ui_fixed-->
+	</div> <!-- #search_info_recipe_page end -->
+	<div data-role="page" class="search_map" id="search_map_page">
+		<div id="block" class="fakeLoader">
+			<div class="fl fl-spinner spinner2"><div class="spinner-container container1"><div class="circle1"></div><div class="circle2"></div><div class="circle3"></div><div class="circle4"></div></div><div class="spinner-container container2"><div class="circle1"></div><div class="circle2"></div><div class="circle3"></div><div class="circle4"></div></div><div class="spinner-container container3"><div class="circle1"></div><div class="circle2"></div><div class="circle3"></div><div class="circle4"></div></div></div>
+		</div>
+		<div id="popup_push_product" class="center">
+			{{product}} 상품 1개를 <br/> 장바구니에 담았습니다.
+		</div>
+		<div class="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="header_wrap">
+                <!-- <h1 id="logo"><a href=""><img src="" alt=""></a></h1> -->
+                <a href="#" class="back_btn" data-rel="back" data-direction="reverse"></a>
+                <input type="search" name="search" class="main_search" placeholder="검색어를 입력해 주세요.">
+                <div class="head_icon">
+                    <div class="basket"><a href="#"></a></div>
+                </div>
+            </div>
+        </div><!--header-->
+		<div data-role="content" class="conts_wrap section">
+			<div class="map_wrap">
+			    <div id="input_wrap" class="cf">
+                    <input type="search" id="input_location" placeholder="원하시는 주소를 입력해 주세요" usemap="#input_img"/>
+                    <div id="submit"></div>
+                </div>
+                <div id="map"></div>
+                <div id="convenience" class="btn"></div>
+			</div>
+            <div class="sec location_info_wrap">
+				<div id="location_info">
+					<div class="info_head sec_width">
+					    <div class="info_tit_wrap">
+    						<div class="tit">매장별 재고</div>
+                            <a class="reset" href="#"></a>
+    					</div>
+                        <div class="info_dc">
+                            <p class="icon info"></p>
+                            구매시점에 따라 실제 재고와 다를 수 있습니다.
+					    </div>
+                    </div>
+                    <div class="product_info_wrap">
+                        <div class="product_wrap info_box">
+                            <a href="#product_detail_page" class="product sec_width">
+                                <div class="pd_img img"></div>
+                                <div class="description">
+                                    <div class="tit_wrap">
+                                        <p class="tit">삼가)뉴참치마요골드</p>
+                                    </div>
+                                    <div class="sub_cont">
+                                        <p class="place">GS25편의점</p>
+                                        <p class="price">1,000원</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="push_wrap sec_width">
+                                <p class="push">담기</p>
+                            </div>
+                        </div>
+                        <div class="store_wrap info_box">
+                            <a href="#" class="store sec_width">
+                                <div class="st_img img"></div>
+                                <div class="description">
+                                    <div class="tit_wrap">
+                                        <p class="tit">GS25 안양타운점</p>
+                                        <p class="how_far">143m</p>
+                                    </div>
+                                    <div class="sub_cont">
+                                        <p class="address">경기도 안양시 만안구 병목안로13번길 24</p>
+                                        <p class="address_num">14450</p>
+									<p class="tel">tel.031-123-4567</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div><!-- #section end -->
+		<div class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <ul>
+                <li class="home">
+                    <a href="#main_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon home"></p>홈</a>
+                </li>
+                <li class="search on">
+                    <a href="#search_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon search"></p>검색</a>
+                </li>
+                <li class="recipe">
+                    <a href="#recipe_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon recipe"></p>레시피</a>
+                </li>
+                <li class="user">
+                    <a href="#" class="ui-btn ui-corner-all" data-role="button"><p class="icon user"></p>MY</a>
+                </li>
+            </ul>
+        </div><!--ui_fixed-->
+	</div><!--#search_map_page end -->
+	<div id="product_detail_page" class="product_detail" data-role="page" data-url="product_detail_page">
+        <div class="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <div class="header_wrap">
+                <!-- <h1 id="logo"><a href=""><img src="" alt=""></a></h1> -->
+                <a href="#" class="back_btn" data-rel="back" data-direction="reverse"></a>
+                <div class="head_icon">
+                    <div class="basket"><a href="#"></a></div>
+                </div>
+            </div>
+        </div><!--header-->
+        <div class="conts_wrap" data-role="content">
+            <div class="sec line">
+                <div class="product_detail_img sec_width">
+                    <img src="images/cream_bread.jpg" alt="크림대빵 상품 이미지">
+                </div>
+                <div class="product_tit_wrap sec_width">
+                    <div class="tit_wrap">
+                        <p class="tit">삼립) 크림대빵</p>
+                        <p class="icon share"></p>
+                    </div>
+                    <div class="price">8,800원</div>
+                </div>
+                <div class="info_wrap sec_width">
+                    <div>
+                        <p class="info_tit">재고 현황</p>
+                        <p class="point_color">1개남음</p>
+                    </div>
+                    <div>
+                        <p class="info_tit">구매 제한</p>
+                        <p class="point">일일 최대 1개까지 구매 가능</p>
+                    </div>
+                    <div class="review_wrap">
+                        <p class="star icon"></p>
+                        <p class="score">4.5</p>
+                        <p class="rview_num">(150)</p>· &nbsp;
+                        <a href="#">후기보기</a>
+                    </div>
+                    <button class="basket_btn">장바구니 담기</button>
+                </div>
+            </div>
+            <div class="sec">
+                <div class="detail_info sec_width">
+                    <p>상품 정보 제공 고시</p>
+                    <div class="detail_info_img">
+                        <img src="images/product_info.jpg" alt="상품 정보 제공 고시 이미지">
+                    </div>
+                    <div class="notice">
+                        *오프라인 개별 점보포부터 배달되는 상품이므로 주문하신 상품의 제조년월일 및 소비기한에 대한 정확한 확인이 어렵습니다. 본 상품의 제조년월일 및 소비기산에 대한 정보는 해당 점포로 직접 문의하여 주시기 바랍니다. 
+                    </div>
+                </div>
+            </div>
+        </div><!--content-->
+        <div class="ui_fixed" data-role="footer" data-position="fixed" data-tap-toggle="false">
+            <ul>
+                <li class="home">
+                    <a href="#main_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon home"></p>홈</a>
+                </li>
+                <li class="search on">
+                    <a href="#search_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon search"></p>검색</a>
+                </li>
+                <li class="recipe">
+                    <a href="#recipe_page" class="ui-btn ui-corner-all" data-role="button"><p class="icon recipe"></p>레시피</a>
+                </li>
+                <li class="user">
+                    <a href="#" class="ui-btn ui-corner-all" data-role="button"><p class="icon user"></p>MY</a>
+                </li>
+            </ul>
+        </div><!--ui_fixed-->
+	</div><!--product_detail_page-->
+</body>
+</html>

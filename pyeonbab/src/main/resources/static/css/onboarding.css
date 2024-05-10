@@ -1,0 +1,19 @@
+﻿/* 이미지+제목 크기 */
+#onboarding>ul{width: 100%; height: 440px;}
+#onboarding li{display: flex; align-items: center; flex-direction: column; text-align: center;}
+
+/* 이미지 크기 */
+#onboarding img{width: 224px; height: 398px;}
+
+/* 제목 */
+.onboarding_title{display: table-cell; vertical-align: middle; font-size: 16px; font-weight: bold; margin-bottom: 20px;}
+
+/* 슬라이더 버튼 */
+.paging {background:#f9f9f9; text-align:center; overflow:hidden; width: 1000px; height: 30px; position: relative; line-height: 10px;}
+.paging .btn_page {display:inline-block; width:10px; height:10px; margin:3px; font-size:0px; line-height:0; text-indent:-9999px; background:#DDDDDD; border-radius: 50%; border: 0;}
+.paging .btn_page.on { background:#555555; width: 20px; border-radius: 40%;}
+
+/* 중앙정렬 */
+.center{left: 50%; position: relative;}
+.center>button{margin-left: -112px;}
+.paging{margin-left: -500px;}
