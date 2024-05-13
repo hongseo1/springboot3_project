@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{commons/layout}">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/login_join.css"/>
+    <script src="js/login_join_script.js"></script>
+</head>
+<body>
+    <th:block layout:fragment="content">
+        <section id="join_wrap" class="cont_width cf">
+            <h2>회원가입</h2>
+            <div class="join fl">
+                <form action="#" id="join_form">
+                    <h3 class="join_tit">일반 회원가입</h3>
+                    <fieldset>
+                        <legend>회원가입</legend>
+                        <div class="member_info_wrap">
+                            <div>
+                                <label for="j_user_id">아이디</label>
+                                <input type="text" name="j_user_id" id="j_user_id" class="user_input" value="아이디" required>
+                            </div>
+                            <div>
+                                <label for="j_user_pw">비밀번호</label>
+                                <input type="text" name="j_user_pw" id="j_user_pw" class="user_input" value="비밀번호" required>
+                            </div>
+                            <div>
+                                <label for="j_user_pw_ck">비밀번호 확인</label>
+                                <input type="text" name="j_user_pw_ck" id="j_user_pw_ck" class="user_input" value="비밀번호 확인" required>
+                            </div>
+                            <div>
+                                <label for="j_user_name">이름</label>
+                                <input type="text" name="j_user_name" id="j_user_name" class="user_input" value="이름" required>
+                            </div>
+                            <div>
+                                <label for="j_user_email">이메일</label>
+                                <input type="text" name="j_user_email" id="j_user_email" class="user_input" value="이메일" required>
+                            </div>
+                        </div>
+                        <button type="reset" value="다시작성" class="reset_btn"></button>
+                        <input type="submit" value="가입" class="join_btn">
+                    </fieldset>
+                </form>
+            </div><!--join-->
+        </section><!--join_wrap-->
+    </th:block>
+</body>
+</html>

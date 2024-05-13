@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{commons/layout}">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/board.css"/>
+</head>
+<body>
+    <th:block layout:fragment="content">
+        <section class="board_wrap cont_width">
+            <ul class="sub_page_menu cf">
+                <li class="first fl"><a href="index" tabindex="118">홈</a></li>
+                <li class="fl"><a href="#" tabindex="119">고객지원</a>
+                    <ul class="sub_menu">
+                        <li><a href="#" tabindex="120">상품</a></li>
+                        <li><a href="#" tabindex="121">이벤트/혜택</a></li>
+                        <li class="active"><a href="#" tabindex="122">고객지원</a></li>
+                        <li><a href="#" tabindex="123">내정보</a></li>
+                        <li><a href="#" tabindex="124">유모바일</a></li>
+                    </ul>
+                </li>
+                <li class="last fl"><a href="#" tabindex="125">일반 게시판</a>
+                    <ul class="sub_menu">
+                        <li class="active"><a href="board" tabindex="126">일반 게시판</a></li>
+                        <li><a href="qaboard" tabindex="127">Q&A 게시판</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="board_update" class="board board_create_update">
+                <h2>일반 게시판</h2>
+                <form method="post" th:action="@{/update/{board_no}(board_no=${board.board_no})}">
+                    <div class="board_cr_up_li board_tit cf">
+                        <span>제목 </span><textarea th:field="${board.title}"></textarea>
+                    </div>
+                    <div class="board_cr_up_li board_content cf">
+                        <span>내용 </span><textarea th:field="${board.content}"></textarea>
+                    </div>
+                    <div class="board_cr_up_li board_writer cf">
+                        <span>작성자 </span><p th:text="${board.writer}"></p>
+                    </div>
+                    <div class="board_cr_up_li board_regdate cf">
+                        <span>작성일 </span><p th:text="${board.regdate}"></p>
+                    </div>
+                    <div class="board_bt cf">
+                        <div class="btn_wrap cf">
+                            <button type="button"th:onclick="|location.href='@{/board}'|" class="fl btn list_btn">목록</button>
+                            <button type="button"th:onclick="|location.href='@{/detail/{board_no}(board_no=${board.board_no})}'|" class="fl btn cancel_btn">취소</button>
+                            <input type="submit" value="저장" class="fl btn save_btn">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </th:block>
+</body>
+</html>
