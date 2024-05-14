@@ -1,2 +1,5 @@
-package com.shop.constant;public enum OrderStatus {
+package com.shop.constant;
+
+public enum OrderStatus {
+    ORDER, CANCEL
 }

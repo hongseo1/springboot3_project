@@ -2,7 +2,11 @@ package com.example.project06.service;
 
 import com.example.project06.entity.Board;
 import com.example.project06.repository.BoardRepository;
+import com.example.project06.repository.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -14,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class BoardServiceImpl implements BoardService{
-    @Autowired
+    @Autowired(required=false)
     BoardRepository repository;
 
     @Override

@@ -21,7 +21,7 @@ public class BoardController {
     @Autowired
     BoardService service;
 
-    @GetMapping("board")
+    @GetMapping("/board")
     public String showBoard(BoardForm boardForm, Model model, @PageableDefault(sort = "board_no", direction = Sort.Direction.DESC) Pageable pageable){
         //@RequestParam(value="page", defaultValue = "0") int page
         //@PageableDefault(sort = "board_no", direction = Sort.Direction.DESC) Pageable pageable
