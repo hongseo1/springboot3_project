@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../css/board.css"/>
 </head>
-
+<body>
     <th:block layout:fragment="content">
         <section class="board_wrap cont_width">
             <ul class="sub_page_menu cf">
@@ -29,8 +29,8 @@
             </ul>
             <div id="board_create" class="board board_create_update">
                 <h2>일반 게시판</h2>
-                <form method="post" th:action="@{/insert}" th:object="${boardForm}">
-                    <input th:if="${board_no}" type="hidden" th:field="*{board_no}">
+                <form method="get" th:action="@{/insert}" th:object="${boardForm}">
+                    <input th:if="${boardNo}" type="hidden" th:field="*{boardNo}">
                     <input th:if="${regdate}" type="hidden" th:field="*{regdate}">
                     <div class="board_cr_up_li board_tit cf">
                         <span>제목 </span><textarea rows="5" cols="50" th:field="*{title}"></textarea>
@@ -54,5 +54,5 @@
             </div>
         </section>
     </th:block>
-
+</body>
 </html>

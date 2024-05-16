@@ -6,12 +6,12 @@ import org.springframework.data.domain.Pageable;
 
 public interface BoardService {
     Iterable<Board> getList();
-    Board selectOneByNo(Integer board_no);
+    Board selectOneByNo(Integer boardNo);
     /*Board selectOneByNo(Integer board_no);*/
 
     void insertBoard(Board board);
     void updateBoard(Board board);
-    void deleteBoardByNo(Integer board_no);
+    void deleteBoardByNo(Integer boardNo);
 
     Page<Board> getList(Pageable pageable);
 }

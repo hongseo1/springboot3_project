@@ -1,15 +1,18 @@
 package com.example.project06.entity;
 
+
 import com.example.project06.constant.Role;
 import com.example.project06.dto.MemberFormDto;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
 
 @Entity
 @Table(name = "member")
-@Data
+@Getter @Setter
+@ToString
 public class Member {
     @Id
     @Column(name = "member_id")
@@ -36,4 +39,3 @@ public class Member {
         return member;
     }
 }
-

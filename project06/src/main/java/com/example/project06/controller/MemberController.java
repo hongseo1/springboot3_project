@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
@@ -22,13 +21,13 @@ public class MemberController {
     @GetMapping("/join")
     public String memberForm(Model model){
         model.addAttribute("memberFormDto", new MemberFormDto());
-        return "/join";
+        return "join";
     }
 
     @PostMapping("/join")
     public String newMember(@Valid MemberFormDto memberFormDto, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){ //에러가 있다면
-            return "/join"; //회원가입으로 돌아감
+            return "join"; //회원가입으로 돌아감
         }
 
         try { //정상 작동 경우
@@ -36,19 +35,19 @@ public class MemberController {
             memberService.saveMember(member);
         } catch (IllegalStateException e){ //에러가 난 경우
             model.addAttribute("errorMessage", e.getMessage()); //에러 메시지
-            return "/join";
+            return "join";
         }
-        return "redirect:/login";
+        return "redirect:/";
     }
 
-    @GetMapping(value = "/login")
+    @GetMapping("/login")
     public String loginMember(){
-        return "/login";
+        return "login";
     }
 
-    @GetMapping(value = "/login/error")
+    @GetMapping("/login/error")
     public String loginError(Model model){
         model.addAttribute("loginErrorMsg", "아이디 또는 비밀번호를 확인해주세요.");
-        return "/login";
+        return "login";
     }
 }

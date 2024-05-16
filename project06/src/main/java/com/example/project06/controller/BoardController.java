@@ -12,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
 
@@ -21,10 +20,10 @@ public class BoardController {
     @Autowired
     BoardService service;
 
-    @GetMapping("/board")
-    public String showBoard(BoardForm boardForm, Model model, @PageableDefault(sort = "board_no", direction = Sort.Direction.DESC) Pageable pageable){
+    @GetMapping("board")
+    public String showBoard(BoardForm boardForm, Model model, @PageableDefault(sort = "boardNo", direction = Sort.Direction.DESC) Pageable pageable){
         //@RequestParam(value="page", defaultValue = "0") int page
-        //@PageableDefault(sort = "board_no", direction = Sort.Direction.DESC) Pageable pageable
+        //@PageableDefault(sort = "boardNo", direction = Sort.Direction.DESC) Pageable pageable
         boardForm.setNewBoard(true);
 
         Page<Board> list = this.service.getList(pageable);
@@ -43,8 +42,8 @@ public class BoardController {
         return "board_writer";
     }
 
-    @PostMapping("/insert")
-    public String insert(@Validated BoardForm boardForm) {
+    @GetMapping("/insert")
+    public String insert(@ModelAttribute BoardForm boardForm) {
         Board board = new Board();
         board.setTitle(boardForm.getTitle());
         board.setContent(boardForm.getContent());
@@ -61,25 +60,24 @@ public class BoardController {
         }*/
         service.insertBoard(board);
         return "redirect:/board";
-
     }
 
-    @GetMapping("/detail/{board_no}")
-    public String detail(@PathVariable Integer board_no, Model model){
-        model.addAttribute("board", service.selectOneByNo(board_no));
+    @GetMapping("/detail/{boardNo}")
+    public String detail(@PathVariable Integer boardNo, Model model){
+        model.addAttribute("board", service.selectOneByNo(boardNo));
 
         return "board_detail";
     }
 
-    @GetMapping("/boardUpdate/{board_no}")
-    public String showUpdate(@PathVariable Integer board_no, Model model){
-        model.addAttribute("board", service.selectOneByNo(board_no));
+    @GetMapping("/boardUpdate/{boardNo}")
+    public String showUpdate(@PathVariable Integer boardNo, Model model){
+        model.addAttribute("board", service.selectOneByNo(boardNo));
         return "board_update";
     }
 
-    @PostMapping("/update/{board_no}")
-    public String update(@PathVariable Integer board_no, Board board, Model model){
-        model.addAttribute("board", service.selectOneByNo(board_no));
+    @GetMapping("/update/{boardNo}")
+    public String update(@PathVariable Integer boardNo, Board board, Model model){
+        model.addAttribute("board", service.selectOneByNo(boardNo));
 
         board.setTitle(board.getTitle());
         board.setContent(board.getContent());
@@ -87,12 +85,12 @@ public class BoardController {
         LocalDate regdate = LocalDate.now();
         board.setRegdate(regdate);
         service.updateBoard(board);
-        return "redirect:/detail/{board_no}";
+        return "redirect:/detail/{boardNo}";
     }
 
     @GetMapping("/board/delete")
-    public String delete(Integer board_no){
-        service.deleteBoardByNo(board_no);
+    public String delete(Integer boardNo){
+        service.deleteBoardByNo(boardNo);
         return "redirect:/board";
     }
 }

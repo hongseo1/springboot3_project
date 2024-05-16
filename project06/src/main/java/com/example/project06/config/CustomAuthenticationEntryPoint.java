@@ -14,4 +14,3 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"Unauthorized");
     }
 }
-

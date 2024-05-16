@@ -1,5 +1,6 @@
 package com.example.project06.form;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +13,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BoardForm {
-    private Integer board_no;
+    @Column(name = "board_no")
+    private Integer boardNo;
     @NotBlank
     private String title;
     @NotBlank

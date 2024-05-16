@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/board.css"/>
 </head>
-
+<body>
     <th:block layout:fragment="content">
         <section class="board_wrap cont_width">
             <ul class="sub_page_menu cf">
@@ -46,7 +46,7 @@
                             <!--<div class="num notice fl" th:text="${obj.board_no}"></div>-->
                             <!--th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}-->
                             <div class="subject fl">
-                                <a th:href="@{/detail/{board_no}(board_no=${obj.board_no})}" tabindex="128" th:text="${obj.title}"></a>
+                                <a th:href="@{/detail/{boardNo}(boardNo=${obj.boardNo})}" tabindex="128" th:text="${obj.title}"></a>
                             </div>
                             <div class="writer fl" th:text="${obj.writer}"></div>
                             <div class="date fl" th:text="${obj.regdate}"></div>
@@ -89,5 +89,5 @@
             </div>
         </section><!--board-->
     </th:block>
-
+</body>
 </html>

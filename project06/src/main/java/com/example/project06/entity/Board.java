@@ -1,22 +1,23 @@
 package com.example.project06.entity;
 
-import com.example.project06.form.BoardForm;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Optional;
 
+@Entity
+@Table(name = "board")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Board {
     @Id
-    private Integer board_no;
+    @Column(name = "board_no")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer boardNo;
     private String title;
     private String content;
     private String writer;

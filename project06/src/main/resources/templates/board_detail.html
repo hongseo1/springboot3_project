@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/board.css"/>
 </head>
-
+<body>
     <th:block layout:fragment="content">
         <section class="board_wrap cont_width">
             <ul class="sub_page_menu cf">
@@ -44,12 +44,12 @@
                 <div class="board_bt cf">
                     <div class="btn_wrap cf">
                         <button type="button"th:onclick="|location.href='@{/board}'|" class="fl btn list_btn">목록</button>
-                        <button type="button"th:onclick="|location.href='@{/boardUpdate/{board_no}(board_no=${board.board_no})}'|" class="fl btn update_btn">변경</button>
-                        <button type="button"th:onclick="|location.href='@{/board/delete(board_no=${board.board_no})}'|" class="fl btn remove_btn">삭제</button>
+                        <button type="button"th:onclick="|location.href='@{/boardUpdate/{boardNo}(boardNo=${board.boardNo})}'|" class="fl btn update_btn">변경</button>
+                        <button type="button"th:onclick="|location.href='@{/board/delete(boardNo=${board.boardNo})}'|" class="fl btn remove_btn">삭제</button>
                     </div>
                 </div>
             </div>
         </section>
     </th:block>
-
+</body>
 </html>
