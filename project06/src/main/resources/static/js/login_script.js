@@ -3,8 +3,8 @@ $(function(){
 	$('.user_input').each(function(){
 		var giudeText = this.defaultValue;
 		var element = $(this);
-        var user_id = $('#user_id');
-        var user_pw = $('#user_pw');
+        var user_id = $('.user_id');
+        var user_pw = $('.user_pw');
 		user_id.focus(function(){
 			if(user_id.val()===giudeText){
 				user_id.val('');
@@ -30,7 +30,7 @@ $(function(){
 
 		if(element.val()===giudeText){
 			element.addClass(guideClass);
-            
+
 		}
     });
 });

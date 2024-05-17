@@ -10,8 +10,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
 
@@ -43,7 +45,7 @@ public class BoardController {
     }
 
     @GetMapping("/insert")
-    public String insert(@ModelAttribute BoardForm boardForm) {
+    public String insert(@Validated BoardForm boardForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         Board board = new Board();
         board.setTitle(boardForm.getTitle());
         board.setContent(boardForm.getContent());
@@ -51,15 +53,15 @@ public class BoardController {
         LocalDate regdate = LocalDate.now();
         board.setRegdate(regdate);
 
-        /*if(!bindingResult.hasErrors()){
+        if(!bindingResult.hasErrors()){
             service.insertBoard(board);
-            redirectAttributes.addFlashAttribute("complete", "등록이 완료되었습니다.");
             return "redirect:/board";
         }else {
-            return showBoard(boardForm, model);
-        }*/
-        service.insertBoard(board);
-        return "redirect:/board";
+            redirectAttributes.addFlashAttribute("complete", "게시글을 입력해 주세요.");
+            return "redirect:/create";
+        }
+        /*service.insertBoard(board);
+        return "redirect:/board";*/
     }
 
     @GetMapping("/detail/{boardNo}")
@@ -77,14 +79,27 @@ public class BoardController {
 
     @GetMapping("/update/{boardNo}")
     public String update(@PathVariable Integer boardNo, Board board, Model model){
+        Board board1 = service.selectOneByNo(boardNo);
+
+        board1.setTitle(board.getTitle());
+        board1.setContent(board.getContent());
+
+        LocalDate regdate = LocalDate.now();
+        board1.setRegdate(regdate);
+
+        service.updateBoard(board1);
+
+        model.addAttribute("board", board1);
+        /*
         model.addAttribute("board", service.selectOneByNo(boardNo));
 
         board.setTitle(board.getTitle());
         board.setContent(board.getContent());
-        board.setWriter(board.getWriter());
+        //board.setWriter(board.getWriter());
         LocalDate regdate = LocalDate.now();
         board.setRegdate(regdate);
         service.updateBoard(board);
+*/
         return "redirect:/detail/{boardNo}";
     }
 

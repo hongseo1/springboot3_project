@@ -16,7 +16,7 @@
 #login_wrap .login .id_pw_wrap input.guide{color: #cccccc;}
 #login_wrap .login .id_pw_wrap .user_id{margin-bottom: 15px;}
 #login_wrap .login .id_pw_wrap label{display: none;}
-#login_form fieldset .save_check{margin-bottom: 25px; font-size: 13px; font-weight: bold; line-height: 13px; cursor: pointer;}
+#login_form fieldset .save_check{margin-bottom: 15px; font-size: 13px; font-weight: bold; line-height: 13px; cursor: pointer;}
 #login_form fieldset .save_check input, #login_form fieldset .save_check label{cursor: pointer;}
 #login_form fieldset .save_check #save_id{margin-right: 5px;}
 #login_form fieldset .login_btn{width: 376px; height: 50px; margin-bottom: 20px; cursor: pointer; background: #662d91; color: #ffffff; border: 0; border-radius: 10px; font-size: 16px; font-weight: bold;}
@@ -37,6 +37,7 @@
 #login_wrap .membership ul li p{letter-spacing: -1.3px; text-align: justify;}
 #login_wrap .membership ul li a>div p{font-weight: 500; line-height: 130%;}
 #login_wrap .membership ul li a>div .tip{padding-top: 5px; color: #666666; font-size: 0.8em; letter-spacing: -1.5px;}
+#login_wrap .error{margin-bottom: 20px; color: #bd2130;}
 
 /* join */
 #join_wrap{}

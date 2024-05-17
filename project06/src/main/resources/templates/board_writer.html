@@ -3,7 +3,6 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{commons/layout}">
 <head>
-    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../css/board.css"/>
 </head>
 <body>
@@ -29,6 +28,7 @@
             </ul>
             <div id="board_create" class="board board_create_update">
                 <h2>일반 게시판</h2>
+                <div th:if="${complete}" th:text="${complete}" class="errors_alert"></div>
                 <form method="get" th:action="@{/insert}" th:object="${boardForm}">
                     <input th:if="${boardNo}" type="hidden" th:field="*{boardNo}">
                     <input th:if="${regdate}" type="hidden" th:field="*{regdate}">

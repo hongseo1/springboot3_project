@@ -63,6 +63,7 @@
 #board_list .board_tr .new{padding-right: 10px; color: #7c40ce; font-weight: bold;}
 
 /* board create update  */
+.errors_alert{margin-bottom: 10px; color: blue;}
 .board_create_update form{border-top: 2px solid #333333;}/*#7c40ce;*/
 .board_create_update .board_cr_up_li{border-bottom: 1px solid #dddddd;}
 .board_create_update .board_tit, .board_create_update .board_writer{height: 80px;}

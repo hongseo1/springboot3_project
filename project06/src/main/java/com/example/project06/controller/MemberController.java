@@ -37,7 +37,7 @@ public class MemberController {
             model.addAttribute("errorMessage", e.getMessage()); //에러 메시지
             return "join";
         }
-        return "redirect:/";
+        return "redirect:/login";
     }
 
     @GetMapping("/login")
@@ -45,7 +45,7 @@ public class MemberController {
         return "login";
     }
 
-    @GetMapping("/login/error")
+    @GetMapping(value = "/login/error")
     public String loginError(Model model){
         model.addAttribute("loginErrorMsg", "아이디 또는 비밀번호를 확인해주세요.");
         return "login";

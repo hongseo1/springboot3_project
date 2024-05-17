@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorate="~{commons/layout}">
+        layout:decorate="~{commons/layout}"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/board.css"/>
 </head>
 <body>
@@ -81,7 +81,7 @@
                             <div class="page_arrow next fl">다음</div>
                             <div class="page_arrow all_next fl">마지막으로</div>
                         </div>-->
-                        <div class="btn_wrap cf">
+                        <div class="btn_wrap cf" sec:authorize="isAuthenticated()">
                             <button type="button" class="fl btn write_btn" th:onclick="|location.href='@{/create}'|">글쓰기</button>
                         </div>
                     </div>

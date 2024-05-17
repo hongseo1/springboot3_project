@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>LG U+ 유모바일</title>
@@ -250,8 +251,10 @@
                         <li class="user_icon fl" title="My"><a href="#" tabindex="109"></a>
                             <div id="user_menu">
                                 <ul class="login_btns cf">
-                                    <li class="login_btn fl"><a href="/login" tabindex="110">로그인</a></li>
-                                    <li class="btn fl"><a href="#" tabindex="111">간편조회</a></li>
+                                    <li class="login_btn fl" sec:authorize="isAuthenticated()"><a href="/logout" tabindex="110">로그아웃</a></li>
+                                    <li class="login_btn fl" sec:authorize="isAnonymous()"><a href="/login" tabindex="110">로그인</a></li>
+                                    <li class="btn fl" sec:authorize="isAuthenticated()"><a href="#" tabindex="111">간편조회</a></li>
+                                    <li class="btn fl" sec:authorize="isAnonymous()"><a href="/join" tabindex="111">회원가입</a></li>
                                 </ul>
                                 <ul class="quick_menu">
                                     <li><a href="#" tabindex="112">데이터관리</a></li>

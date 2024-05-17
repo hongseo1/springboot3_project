@@ -14,22 +14,22 @@ function hund(z){
 	return m
 }
 function dday_count(){
-	var date = $('.d_day');
-	var hour = $('.hour');
-	var minute = $('.minute');
-	var seconds = $('.seconds');
+	var date = $('#time_event .d_day');
+	var hour = $('#time_event .hour');
+	var minute = $('#time_event .minute');
+	var seconds = $('#time_event .seconds');
 
 	doomsday = new Date('Octo 1, 2024 00:00:00')
 	// Janu Febr Marc Apri May June July Augu Sept Octo Nove Dece
 	today = new Date()
 	howfar = doomsday - today
-	
+
 	if(howfar>0){
 		setTimeout('dday_count()',1000)
 	} else{
 		clearTimeout('dday_count()')
 		document.getElementById('time_out').innerHTML='이벤트 종료. 다음 이벤트를 기다려 주세요.'
-		$('.time').addClass('off');
+		$('#time_event .time').addClass('off');
 		return false
 	}
 
@@ -53,7 +53,7 @@ function dday_count(){
 	minute.text(m);
 	seconds.text(s);
 }
-
+dday_count();
 $(function(){
 	//$('.pop_wrap').hide();
 	/* pop */
@@ -80,7 +80,7 @@ $(function(){
 		pop_length();
 	}
 	if ($.cookie('event_pop1') == 'nope1' && $.cookie('event_pop2') == 'nope2' && $('.pop_box').length == 0) {
-		pop_all_close.trigger('click'); 
+		pop_all_close.trigger('click');
 	}
 	function pop_noep(){
 		if(pop_checkbox.eq(0).is(":checked")){
@@ -92,7 +92,7 @@ $(function(){
 	}
 	function pop_length(){
 		if($('.pop_box').length == 0) {
-			pop_all_close.trigger('click'); 
+			pop_all_close.trigger('click');
 		}
 		if($('.pop_box').length == 1){
 			$('#pop').css('width','420').css('margin-left','-210px');
@@ -114,8 +114,8 @@ $(function(){
 	var bn_prev = $('.banner_buts .prev_btn');
 	var bn_next = $('.banner_buts .next_btn');
 	bn_total_num.append(' / '+banner.size());
-  
-	function move(tg, start, end) { 
+
+	function move(tg, start, end) {
 		tg.css('left', start).stop().animate({left: end},{duration:500, ease:'easeOutCubic'});
 	};
 	function left_but (){
@@ -172,13 +172,13 @@ $(function(){
 		bn_timer();
 		bn_play.hide();
 		bn_pause.show();
-	}); 
+	});
 
 	/*main_event_service*/
 	var event_service = $('#main_event_service');
 	var evnt_wrap = $('.event_wrap');
 	var service_wrap = $('.point_service_wrap');
-	
+
 	evnt_wrap.hover(
 		function(){
 			service_wrap.stop(true,true).animate({width:'10%', right:0},{duration:500, queue:false, easeing:'easeOutCubic'});
@@ -237,7 +237,7 @@ $(function(){
 		bast_conts.eq(i).show();
 	});
 
-	var swiper = new Swiper(".fee_list01", { 
+	var swiper = new Swiper(".fee_list01", {
 		slidesPerView: 2,
 		spaceBetween: 20,
 		navigation: {
@@ -245,7 +245,7 @@ $(function(){
 			prevEl: ".fee01 .swiper-button-prev",
 		},
 	});
-	var swiper = new Swiper(".fee_list02", { 
+	var swiper = new Swiper(".fee_list02", {
 		slidesPerView: 2,
 		spaceBetween: 20,
 		navigation: {
@@ -253,7 +253,7 @@ $(function(){
 			prevEl: ".fee02 .swiper-button-prev",
 		},
 	});
-	var swiper = new Swiper(".fee_list03", { 
+	var swiper = new Swiper(".fee_list03", {
 		slidesPerView: 2,
 		spaceBetween: 20,
 		navigation: {
@@ -261,7 +261,7 @@ $(function(){
 			prevEl: ".fee03 .swiper-button-prev",
 		},
 	});
-	var swiper = new Swiper(".fee_list04", { 
+	var swiper = new Swiper(".fee_list04", {
 		slidesPerView: 2,
 		spaceBetween: 20,
 		navigation: {
@@ -269,7 +269,7 @@ $(function(){
 			prevEl: ".fee04 .swiper-button-prev",
 		},
 	});
-	var swiper = new Swiper(".fee_list05", { 
+	var swiper = new Swiper(".fee_list05", {
 		slidesPerView: 2,
 		spaceBetween: 20,
 		navigation: {
@@ -277,7 +277,7 @@ $(function(){
 			prevEl: ".fee05 .swiper-button-prev",
 		},
 	});
-	var swiper = new Swiper(".fee_list06", { 
+	var swiper = new Swiper(".fee_list06", {
 		slidesPerView: 2,
 		spaceBetween: 20,
 		navigation: {
@@ -285,26 +285,26 @@ $(function(){
 			prevEl: ".fee06 .swiper-button-prev",
 		},
 	});
-   
+
     /*phone_join tab*/
     $('.join_conts').each(function(){
 		var top_div = $(this);
-		var anchors = top_div.find('.join_tab_menu a'); 
+		var anchors = top_div.find('.join_tab_menu a');
 		var panel_divs = top_div.find('.join_box');
 		var lastAnchor;
 		var lastPanel;
-		
+
 		anchors.show();
 		lastAnchor = anchors.filter('.active');
 		lastPanel = $(lastAnchor.attr('href'));
 		panel_divs.hide();
 		lastPanel.show();
-		
+
 		anchors.click(function(event){
 			event.preventDefault();
 			var currentAnchor = $(this);
 			var currentPanel = $(currentAnchor.attr('href'));
-			
+
 			if(currentAnchor.get(0) === lastAnchor.get(0)){
 				return;
 			}
@@ -352,7 +352,7 @@ $(function(){
 		var hour = $now.getHours();
 		var $w_icon = data.list[0].weather[0].icon;
 		//var $w_city = data.city.name;
-		
+
 		$('.w_temp').append($w_temp+' ℃');
 		$('.min_max_temp').append('최저 기온'+$min_temp+' ℃'+' | '+'최고 기온'+$max_temp+' ℃');
 		$('.w_max').append();
@@ -360,7 +360,7 @@ $(function(){
 		$('.now_time').append($now_time);
 		$('.w_icon').append('<img src="http://openweathermap.org/img/wn/'+$w_icon+'.png"/>');
 		$('.w_city').append('안양시');
-		
+
 		if(hour>=4&&hour<=12){//오전
 			$('.weather_bn').css("background-image","url(images/weacher_am.png)");
 		} else if(hour>=18){//오후
@@ -370,6 +370,6 @@ $(function(){
 		} else{
 			$('.weather_bn').css("background-image","url(images/weacher_am_pm.png)").css('background-position-y', '-80px');
 		}
-		
+
 	});
 });

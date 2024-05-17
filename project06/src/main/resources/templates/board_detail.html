@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{commons/layout}">
+      layout:decorate="~{commons/layout}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/board.css"/>
 </head>
 <body>
@@ -44,8 +44,8 @@
                 <div class="board_bt cf">
                     <div class="btn_wrap cf">
                         <button type="button"th:onclick="|location.href='@{/board}'|" class="fl btn list_btn">목록</button>
-                        <button type="button"th:onclick="|location.href='@{/boardUpdate/{boardNo}(boardNo=${board.boardNo})}'|" class="fl btn update_btn">변경</button>
-                        <button type="button"th:onclick="|location.href='@{/board/delete(boardNo=${board.boardNo})}'|" class="fl btn remove_btn">삭제</button>
+                        <button type="button"th:onclick="|location.href='@{/boardUpdate/{boardNo}(boardNo=${board.boardNo})}'|" class="fl btn update_btn" sec:authorize="isAuthenticated()">변경</button>
+                        <button type="button"th:onclick="|location.href='@{/board/delete(boardNo=${board.boardNo})}'|" class="fl btn remove_btn" sec:authorize="isAuthenticated()">삭제</button>
                     </div>
                 </div>
             </div>
