@@ -3,6 +3,7 @@ package com.shop.dto;
 import com.shop.constant.ItemSellStatus;
 import com.shop.entity.Item;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
@@ -17,17 +18,17 @@ import java.util.List;
 public class ItemFormDto {
     private Long id;
 
-    @NotBlank(message = "상품명은 필수 입력 값입니다,")
+    @NotBlank(message = "상품명은 필수 입력 값입니다.")
     private String itemNm;
 
-    @NotBlank(message = "가격은 필수 입력 값입니다,")
-    private String price;
+    @NotNull(message = "가격은 필수 입력 값입니다.")
+    private Integer price;
 
-    @NotBlank(message = "상품 상세는 필수 입력 값입니다,")
+    @NotBlank(message = "상품 상세는 필수 입력 값입니다.")
     private String itemDetail;
 
-    @NotBlank(message = "재고는 필수 입력 값입니다,")
-    private String stockNumber;
+    @NotNull(message = "재고는 필수 입력 값입니다.")
+    private Integer stockNumber;
 
     private ItemSellStatus itemSellStatus;
 
