@@ -48,7 +48,7 @@
                             <div class="subject fl">
                                 <a th:href="@{/detail/{boardNo}(boardNo=${obj.boardNo})}" tabindex="128" th:text="${obj.title}"></a>
                             </div>
-                            <div class="writer fl" th:text="${obj.writer}"></div>
+                            <div class="writer fl" th:text="${obj.member.name}"></div>
                             <div class="date fl" th:text="${obj.regdate}"></div>
                         </div>
                     </div>

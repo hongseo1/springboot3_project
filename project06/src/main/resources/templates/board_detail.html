@@ -34,7 +34,7 @@
                         제목: <span th:text="${board.title}">제목</span>
                     </div>
                     <div class="board_info fr">
-                        <p th:text="${board.writer}">작성자</p>
+                        <p th:text="${board.member.name}">작성자</p>
                         <p th:text="${board.regdate}">등록일</p>
                     </div>
                 </div>
@@ -43,9 +43,11 @@
                 </div>
                 <div class="board_bt cf">
                     <div class="btn_wrap cf">
-                        <button type="button"th:onclick="|location.href='@{/board}'|" class="fl btn list_btn">목록</button>
-                        <button type="button"th:onclick="|location.href='@{/boardUpdate/{boardNo}(boardNo=${board.boardNo})}'|" class="fl btn update_btn" sec:authorize="isAuthenticated()">변경</button>
-                        <button type="button"th:onclick="|location.href='@{/board/delete(boardNo=${board.boardNo})}'|" class="fl btn remove_btn" sec:authorize="isAuthenticated()">삭제</button>
+                        <button type="button" th:onclick="|location.href='@{/board}'|" class="fl btn list_btn">목록</button>
+                        <th:block  th:if="${board.member.email} == ${member.email}">
+                            <button type="button" th:onclick="|location.href='@{/boardUpdate/{boardNo}(boardNo=${board.boardNo})}'|" class="fl btn update_btn" sec:authorize="isAuthenticated()">변경</button>
+                            <button type="button" th:onclick="|location.href='@{/board/delete(boardNo=${board.boardNo})}'|" class="fl btn remove_btn" sec:authorize="isAuthenticated()">삭제</button>
+                        </th:block>
                     </div>
                 </div>
             </div>

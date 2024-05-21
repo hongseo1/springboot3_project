@@ -23,9 +23,4 @@ public class ThymeleafController {
     public String showD(){
         return "qaboard";
     }
-
-    @GetMapping("popup.html")
-    public String showE(){
-        return "popup";
-    }
 }

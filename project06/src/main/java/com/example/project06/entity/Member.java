@@ -19,7 +19,7 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    @Column(unique = true)
+    @Column(name = "member_email", unique = true)
     private String email;
     private String password;
     private String address;

@@ -29,9 +29,10 @@
             <div id="board_create" class="board board_create_update">
                 <h2>일반 게시판</h2>
                 <div th:if="${complete}" th:text="${complete}" class="errors_alert"></div>
-                <form method="get" th:action="@{/insert}" th:object="${boardForm}">
+                <form method="post" th:action="@{/insert}" th:object="${boardFormDto}">
                     <input th:if="${boardNo}" type="hidden" th:field="*{boardNo}">
                     <input th:if="${regdate}" type="hidden" th:field="*{regdate}">
+                    <input th:if="${writer}" type="hidden" th:text="*{writer}">
                     <div class="board_cr_up_li board_tit cf">
                         <span>제목 </span><textarea rows="5" cols="50" th:field="*{title}"></textarea>
                         <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" style="color:red"></div>
@@ -41,8 +42,8 @@
                         <div th:if="${#fields.hasErrors('content')}" th:errors="*{content}" style="color:red"></div>
                     </div>
                     <div class="board_cr_up_li board_writer cf">
-                        <span>작성자 </span><input type="text" th:field="*{writer}">
-                        <div th:if="${#fields.hasErrors('writer')}" th:errors="*{writer}" style="color:red"></div>
+                        <span>작성자 </span><input type="text" th:value="${member.name}" disabled>
+                        <!--<div th:if="${#fields.hasErrors('writer')}" th:errors="*{writer}" style="color:red"></div>-->
                     </div>
                     <div class="board_bt cf">
                         <div class="btn_wrap cf">
@@ -50,6 +51,7 @@
                             <input type="submit" value="작성 완료" class="fl btn save_btn">
                         </div>
                     </div>
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"><!--보안-->
                 </form>
             </div>
         </section>

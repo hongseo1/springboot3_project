@@ -36,7 +36,7 @@
                         <span>내용 </span><textarea th:field="${board.content}"></textarea>
                     </div>
                     <div class="board_cr_up_li board_writer cf">
-                        <span>작성자 </span><p th:text="${board.writer}"></p>
+                        <span>작성자 </span><p th:text="${board.member.name}"></p>
                     </div>
                     <div class="board_cr_up_li board_regdate cf">
                         <span>작성일 </span><p th:text="${board.regdate}"></p>

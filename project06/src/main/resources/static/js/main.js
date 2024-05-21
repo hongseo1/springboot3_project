@@ -14,10 +14,10 @@ function hund(z){
 	return m
 }
 function dday_count(){
-	var date = $('#time_event .d_day');
-	var hour = $('#time_event .hour');
-	var minute = $('#time_event .minute');
-	var seconds = $('#time_event .seconds');
+	var date = $('.d_day');
+	var hour = $('.hour');
+	var minute = $('.minute');
+	var seconds = $('.seconds');
 
 	doomsday = new Date('Octo 1, 2024 00:00:00')
 	// Janu Febr Marc Apri May June July Augu Sept Octo Nove Dece
@@ -29,7 +29,7 @@ function dday_count(){
 	} else{
 		clearTimeout('dday_count()')
 		document.getElementById('time_out').innerHTML='이벤트 종료. 다음 이벤트를 기다려 주세요.'
-		$('#time_event .time').addClass('off');
+		$('.time').addClass('off');
 		return false
 	}
 
@@ -100,7 +100,7 @@ $(function(){
 		}
 	}
 
-	window.open('popup.html', "", "width=440, height=596");
+	//window.open('popup.html', "", "width=440, height=596");
 
 	/*banner*/
 	var banner_bg = $('.banner_bg_list li');

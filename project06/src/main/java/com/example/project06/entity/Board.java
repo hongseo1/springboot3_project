@@ -20,7 +20,13 @@ public class Board {
     private Integer boardNo;
     private String title;
     private String content;
-    private String writer;
+    //private String writer;
+
+    @ManyToOne
+    @JoinColumn(name = "member_email")
+    private Member member;
+
+
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate regdate;
 
