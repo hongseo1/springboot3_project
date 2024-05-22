@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface BoardService {
-    Iterable<Board> getList();
+    //Iterable<Board> getList();
     Board selectOneByNo(Integer boardNo);
     /*Board selectOneByNo(Integer board_no);*/
 
@@ -14,4 +14,6 @@ public interface BoardService {
     void deleteBoardByNo(Integer boardNo);
 
     Page<Board> getList(Pageable pageable);
+
+    public Page<Board> boardSearchList(String searchKeyword,Pageable pageable);
 }

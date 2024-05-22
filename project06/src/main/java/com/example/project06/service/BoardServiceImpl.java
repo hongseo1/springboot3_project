@@ -14,10 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class BoardServiceImpl implements BoardService{
     private final BoardRepository boardRepository;
 
-    @Override
+    /*@Override
     public Iterable<Board> getList() {
         return boardRepository.findAll();
-    }
+    }*/
 
     @Override
     public Board selectOneByNo(Integer boardNo) {
@@ -43,4 +43,10 @@ public class BoardServiceImpl implements BoardService{
         //Pageable pageable = PageRequest.of(page, 10);
         return this.boardRepository.findAll(pageable);
     }
+
+    public Page<Board> boardSearchList(String searchKeyword,Pageable pageable){
+        return boardRepository.findByTitleContaining(searchKeyword,pageable);
+    }
+
+
 }

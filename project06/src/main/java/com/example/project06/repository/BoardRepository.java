@@ -10,6 +10,6 @@ import java.util.Map;
 public interface BoardRepository extends JpaRepository<Board, Integer> {
     /*@Query("SELECT * FROM board")
     Integer getboard_no();*/
-
+    Page<Board> findByTitleContaining(String searchKeyword, Pageable pageable);
     Page<Board> findAll(Pageable pageable);
 }

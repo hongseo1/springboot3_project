@@ -30,7 +30,7 @@ public class SecurityConfig {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))//로그 아웃 URL을 설정
                 .logoutSuccessUrl("/index") //로그아웃 성공 시 이동할 URL을 설정
         ).authorizeHttpRequests(auth -> auth //HttpServleRequest를 사용해서 적용
-                .requestMatchers("/css/**", "/js/**", "/img/**").permitAll() //permitAll() 모든 사용자 접근 가능
+                .requestMatchers("/css/**", "/js/**", "/data/**", "/img/**").permitAll() //permitAll() 모든 사용자 접근 가능
                 .requestMatchers("/", "/index", "/login", "/login/error", "/join", "/board", "/detail/*", "/qaboard", "images/**", "/error").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN") //admin 권한을 가져야만 접근 가능
                 .anyRequest().authenticated() //제외한 나머지 경로들은 모두 인증하도록 설정

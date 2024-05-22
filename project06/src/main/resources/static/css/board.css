@@ -50,7 +50,7 @@
 #board_list .num{width: 135px;}
 #board_list .subject{width: 885px;}
 #board_list .subject a{display: block; padding: 20px 0;}
-#board_list .writer{width: 200px;}
+#board_list .writer{width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 #board_list .date{width: 200px;}
 #board_list .correction{width: 50px;}
 #board_list .remove{width: 50px;}

@@ -1,19 +1,15 @@
 package com.example.project06.controller;
 
-import com.example.project06.dto.MemberFormDto;
 import com.example.project06.entity.Board;
 import com.example.project06.dto.BoardFormDto;
 import com.example.project06.entity.Member;
 import com.example.project06.repository.MemberRepository;
 import com.example.project06.service.BoardService;
-import com.example.project06.service.MemberService;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -33,16 +29,30 @@ public class BoardController {
     private MemberRepository memberRepository;
 
     @GetMapping("board")
-    public String showBoard(BoardFormDto boardFormDto, Model model, @PageableDefault(sort = "boardNo", direction = Sort.Direction.DESC) Pageable pageable){
+    public String showBoard(BoardFormDto boardFormDto, Model model, @PageableDefault(sort = "boardNo", direction = Sort.Direction.DESC) Pageable pageable, String searchKeyword){
         //@RequestParam(value="page", defaultValue = "0") int page
         //@PageableDefault(sort = "boardNo", direction = Sort.Direction.DESC) Pageable pageable
         boardFormDto.setNewBoard(true);
+        Page<Board> list = null;
 
-        Page<Board> list = this.service.getList(pageable);
-        Iterable<Board> listV = service.getList();
+        if (searchKeyword == null) {
+            // 검색 단어가 없으면 기존 화면을 보여준다.
+            list = service.getList(pageable);
+        } else {
+            // 검색 단어가 들어오면 검색 단어에 맞게 나온다. 쿼리스트링으로 들어가는 키워드를 찾아냄
+            list = service.boardSearchList(searchKeyword, pageable);
+            if(list.isEmpty()){
+                list = service.getList(pageable);
+                model.addAttribute("searchErrorMsg", "검색 결과가 없습니다.");
+            }
+        }
+
+        //Page<Board> list = this.service.getList(pageable);
+        //Iterable<Board> listV = service.getList();
 
         model.addAttribute("list", list);
-        model.addAttribute("listV", listV);
+        //model.addAttribute("listV", listV);
+
         return "board";
     }
 
@@ -76,15 +86,15 @@ public class BoardController {
             redirectAttributes.addFlashAttribute("complete", "게시글을 입력해 주세요.");
             return "redirect:/create";
         }
-        /*service.insertBoard(board);
-        return "redirect:/board";*/
     }
 
     @GetMapping("/detail/{boardNo}")
     public String detail(@PathVariable Integer boardNo, Model model, Principal principal){
-        String loginId = principal.getName();
-        Member member = memberRepository.findByEmail(loginId);
-        model.addAttribute("member", member);
+        if(principal != null){
+            String loginId = principal.getName();
+            Member member = memberRepository.findByEmail(loginId);
+            model.addAttribute("member", member);
+        }
         model.addAttribute("board", service.selectOneByNo(boardNo));
 
         return "board_detail";

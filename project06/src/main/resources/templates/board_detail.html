@@ -44,10 +44,18 @@
                 <div class="board_bt cf">
                     <div class="btn_wrap cf">
                         <button type="button" th:onclick="|location.href='@{/board}'|" class="fl btn list_btn">목록</button>
-                        <th:block  th:if="${board.member.email} == ${member.email}">
-                            <button type="button" th:onclick="|location.href='@{/boardUpdate/{boardNo}(boardNo=${board.boardNo})}'|" class="fl btn update_btn" sec:authorize="isAuthenticated()">변경</button>
-                            <button type="button" th:onclick="|location.href='@{/board/delete(boardNo=${board.boardNo})}'|" class="fl btn remove_btn" sec:authorize="isAuthenticated()">삭제</button>
+                        <th:block sec:authorize="isAuthenticated()" th:if="${board.member.email} == ${member.email} or ${#strings.equals(member.role, 'ADMIN')}">
+                            <button type="button" th:onclick="|location.href='@{/boardUpdate/{boardNo}(boardNo=${board.boardNo})}'|" class="fl btn update_btn" >변경</button>
+                            <button type="button" th:onclick="|location.href='@{/board/delete(boardNo=${board.boardNo})}'|" class="fl btn remove_btn">삭제</button>
                         </th:block>
+                        <!--<th:block sec:authorize="isAuthenticated()" th:if="${board.member.email} == ${member.email} and ${#strings.equals(member.role, 'USER')}">
+                            <button type="button" th:onclick="|location.href='@{/boardUpdate/{boardNo}(boardNo=${board.boardNo})}'|" class="fl btn update_btn" >변경</button>
+                            <button type="button" th:onclick="|location.href='@{/board/delete(boardNo=${board.boardNo})}'|" class="fl btn remove_btn">삭제</button>
+                        </th:block>
+                        <th:block sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+                            <button type="button" th:onclick="|location.href='@{/boardUpdate/{boardNo}(boardNo=${board.boardNo})}'|" class="fl btn update_btn" >변경</button>
+                            <button type="button" th:onclick="|location.href='@{/board/delete(boardNo=${board.boardNo})}'|" class="fl btn remove_btn">삭제</button>
+                        </th:block>-->
                     </div>
                 </div>
             </div>

@@ -29,11 +29,12 @@
             </ul>
             <div id="board" class="board">
                 <h2>일반 게시판</h2>
-                <form action="#" id="search_bar">
-                    <input type="text" name="search_txt" placeholder="검색어를 입력해주세요." id="search_txt">
-                    <button type="button" class="search_btn">검색</button>
+                <form th:action="@{/board}" method="get" id="search_bar">
+                    <input type="text" name="searchKeyword" placeholder="검색어를 입력해주세요." id="search_txt" th:value=${param.searchKeyword}>
+                    <button type="submit" class="search_btn">검색</button>
                 </form>
                 <div class="board_list_wrap">
+                    <p th:if="${searchErrorMsg}" class="error" th:text="${searchErrorMsg}"></p>
                     <div id="board_list" th:unless="${#lists.isEmpty(list)}">
                         <div class="board_header cf">
                             <div class="num fl">번호</div>
@@ -71,7 +72,7 @@
                                 <a th:href="@{|?page=${list.number+1}|}">다음</a>
                             </div>
                             <div class="page_arrow all_next fl" th:classappend="${!list.hasNext} ? 'none'">
-                                <a th:href="@{|?page=${list.number+1}|}">마지막으로</a>
+                                <a th:href="@{|?page=${list.totalPages-1}|}">마지막으로</a>
                             </div>
                         </div>
                         <!--<div class="board_page_num cf">
