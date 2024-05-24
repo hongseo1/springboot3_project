@@ -74,7 +74,7 @@ public class BoardController {
         boardFormDto.setMember(member);
         Board board = new Board();
         board.setTitle(boardFormDto.getTitle());
-        board.setContent(boardFormDto.getContent());
+        board.setContent(boardFormDto.getContent().replace("\r\n","<br>"));
         board.setMember(boardFormDto.getMember());
         LocalDate regdate = LocalDate.now();
         board.setRegdate(regdate);
@@ -95,14 +95,18 @@ public class BoardController {
             Member member = memberRepository.findByEmail(loginId);
             model.addAttribute("member", member);
         }
-        model.addAttribute("board", service.selectOneByNo(boardNo));
+        Board board = service.selectOneByNo(boardNo);
+        board.setContent(board.getContent().replace("<br>","<br>"));
+        model.addAttribute("board", board);
 
         return "board_detail";
     }
 
     @GetMapping("/boardUpdate/{boardNo}")
     public String showUpdate(@PathVariable Integer boardNo, Model model){
-        model.addAttribute("board", service.selectOneByNo(boardNo));
+        Board board = service.selectOneByNo(boardNo);
+        board.setContent(board.getContent().replace("<br>","\r\n"));
+        model.addAttribute("board", board);
         return "board_update";
     }
 
@@ -111,7 +115,7 @@ public class BoardController {
         Board board1 = service.selectOneByNo(boardNo);
 
         board1.setTitle(board.getTitle());
-        board1.setContent(board.getContent());
+        board1.setContent(board.getContent().replace("\r\n","<br/>"));
 
         LocalDate regdate = LocalDate.now();
         board1.setRegdate(regdate);
