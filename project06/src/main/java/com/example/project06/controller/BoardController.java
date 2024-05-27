@@ -95,9 +95,8 @@ public class BoardController {
             Member member = memberRepository.findByEmail(loginId);
             model.addAttribute("member", member);
         }
-        Board board = service.selectOneByNo(boardNo);
-        board.setContent(board.getContent().replace("<br>","<br>"));
-        model.addAttribute("board", board);
+
+        model.addAttribute("board", service.selectOneByNo(boardNo));
 
         return "board_detail";
     }
@@ -106,7 +105,7 @@ public class BoardController {
     public String showUpdate(@PathVariable Integer boardNo, Model model){
         Board board = service.selectOneByNo(boardNo);
         board.setContent(board.getContent().replace("<br>","\r\n"));
-        model.addAttribute("board", board);
+        model.addAttribute("board", service.selectOneByNo(boardNo));
         return "board_update";
     }
 
@@ -115,7 +114,7 @@ public class BoardController {
         Board board1 = service.selectOneByNo(boardNo);
 
         board1.setTitle(board.getTitle());
-        board1.setContent(board.getContent().replace("\r\n","<br/>"));
+        board1.setContent(board.getContent().replace("\r\n","<br>"));
 
         LocalDate regdate = LocalDate.now();
         board1.setRegdate(regdate);
